@@ -21,6 +21,10 @@
     # login using phone number
     PhoneAuth(api_id, api_hash, client).lets()
 
-    # I'll call an API method
+    # making an API call
     result = client.send(getMe())
     print(result)
+
+    # get updates
+    for update in client.get_updates():
+        print(update)
