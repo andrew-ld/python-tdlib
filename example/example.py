@@ -1,5 +1,5 @@
 from ctypes import CDLL
-from tdwrapper import Client, TokenAuth
+from py_tdlib import Client, TokenAuth
 
 btoken = input("bot token: ")
 tdjson = CDLL("data/tdjson.so")
