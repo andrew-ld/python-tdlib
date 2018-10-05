@@ -1,7 +1,7 @@
 from sys import hexversion
 from werkzeug.utils import secure_filename
 
-from tdwrapper.constructors import (
+from .constructors import (
     setTdlibParameters, tdlibParameters, updateAuthorizationState,
     authorizationStateWaitEncryptionKey, checkDatabaseEncryptionKey,
     getAuthorizationState, authorizationStateWaitPhoneNumber,
