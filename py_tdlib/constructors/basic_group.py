@@ -2,8 +2,8 @@ from ..factory import Method, Type
 
 
 class basicGroup(Type):
-    #  a basic group of 0-200 users (must be upgraded
-    #  a supergroup to accommodate more than 200 users)
+    # Represents a basic group of 0-200 users (must be upgraded
+    # to a supergroup to accommodate more than 200 users)
 
     id = None  # type: "int32"
     member_count = None  # type: "int32"
@@ -14,8 +14,8 @@ class basicGroup(Type):
 
 
 class getBasicGroup(Method):
-    #  information about a basic group by its identifier. This
-    #  an offline request if the current user is not
-    #  bot @basic_group_id Basic group identifier
+    # Returns information about a basic group by its identifier. This
+    # is an offline request if the current user is not
+    # a bot @basic_group_id Basic group identifier
 
     basic_group_id = None  # type: "int32"

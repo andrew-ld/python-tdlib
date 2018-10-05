@@ -2,7 +2,7 @@ from ..factory import Method, Type
 
 
 class supergroupFullInfo(Type):
-    #  full information about a supergroup or channel
+    # Contains full information about a supergroup or channel
 
     description = None  # type: "string"
     member_count = None  # type: "int32"
@@ -21,7 +21,7 @@ class supergroupFullInfo(Type):
 
 
 class getSupergroupFullInfo(Method):
-    #  full information about a supergroup or channel by its
-    #  cached for up to 1 minute @supergroup_id Supergroup or channel identifier
+    # Returns full information about a supergroup or channel by its
+    # identifier, cached for up to 1 minute @supergroup_id Supergroup or channel identifier
 
     supergroup_id = None  # type: "int32"

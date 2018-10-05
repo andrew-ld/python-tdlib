@@ -2,7 +2,7 @@ from ..factory import Type
 
 
 class connectedWebsite(Type):
-    #  information about one website the current user is logged in with Telegram
+    # Contains information about one website the current user is logged in with Telegram
 
     id = None  # type: "int64"
     domain_name = None  # type: "string"

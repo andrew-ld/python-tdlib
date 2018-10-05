@@ -2,16 +2,16 @@ from ..factory import Method, Type
 
 
 class accountTtl(Type):
-    #  information about the period of inactivity after which the
-    #  user's account will automatically be deleted @days Number of
-    #  of inactivity before the account will be flagged for
-    #  should range from 30-366 days
+    # Contains information about the period of inactivity after which the
+    # current user's account will automatically be deleted @days Number of
+    # days of inactivity before the account will be flagged for
+    # deletion; should range from 30-366 days
 
     days = None  # type: "int32"
 
 
 class getAccountTtl(Method):
-    #  the period of inactivity after which the account of
-    #  current user will automatically be deleted
+    # Returns the period of inactivity after which the account of
+    # the current user will automatically be deleted
 
     pass

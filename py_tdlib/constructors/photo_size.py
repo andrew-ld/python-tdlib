@@ -2,8 +2,8 @@ from ..factory import Type
 
 
 class photoSize(Type):
-    #  description @type Thumbnail type (see https://core.telegram.org/constructor/photoSize) @photo Information about
-    #  photo file @width Photo width @height Photo height
+    # Photo description @type Thumbnail type (see https://core.telegram.org/constructor/photoSize) @photo Information about
+    # the photo file @width Photo width @height Photo height
 
     type = None  # type: "string"
     photo = None  # type: "file"

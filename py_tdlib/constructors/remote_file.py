@@ -2,7 +2,7 @@ from ..factory import Type
 
 
 class remoteFile(Type):
-    #  a remote file
+    # Represents a remote file
 
     id = None  # type: "string"
     is_uploading_active = None  # type: "Bool"

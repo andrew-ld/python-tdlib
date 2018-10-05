@@ -2,7 +2,7 @@ from ..factory import Type
 
 
 class tdlibParameters(Type):
-    #  parameters for TDLib initialization
+    # Contains parameters for TDLib initialization
 
     use_test_dc = None  # type: "Bool"
     database_directory = None  # type: "string"

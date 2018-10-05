@@ -2,8 +2,8 @@ from ..factory import Type
 
 
 class identityDocument(Type):
-    #  identity document @number Document number; 1-24 characters @expiry_date Document
-    #  date; may be null @front_side Front side of the
+    # An identity document @number Document number; 1-24 characters @expiry_date Document
+    # expiry date; may be null @front_side Front side of the document
 
     number = None  # type: "string"
     expiry_date = None  # type: "date"

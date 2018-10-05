@@ -2,7 +2,7 @@ from ..factory import Method, Type
 
 
 class chatInviteLinkInfo(Type):
-    #  information about a chat invite link
+    # Contains information about a chat invite link
 
     chat_id = None  # type: "int53"
     type = None  # type: "ChatType"
@@ -14,8 +14,8 @@ class chatInviteLinkInfo(Type):
 
 
 class checkChatInviteLink(Method):
-    #  the validity of an invite link for a chat
-    #  returns information about the corresponding chat @invite_link Invite link
-    #  be checked; should begin with "https://t.me/joinchat/", "https://telegram.me/joinchat/", or "https://telegram.dog/joinchat/"
+    # Checks the validity of an invite link for a chat
+    # and returns information about the corresponding chat @invite_link Invite link
+    # to be checked; should begin with "https://t.me/joinchat/", "https://telegram.me/joinchat/", or "https://telegram.dog/joinchat/"
 
     invite_link = None  # type: "string"

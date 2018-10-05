@@ -2,11 +2,11 @@ from ..factory import Method, Type
 
 
 class authenticationCodeInfo(Type):
-    #  about the authentication code that was sent @phone_number A
-    #  number that is being authenticated @type Describes the way
-    #  code was sent to the user @next_type Describes the
-    #  the next code will be sent to the user;
-    #  be null @timeout Timeout before the code should be re-sent, in seconds
+    # Information about the authentication code that was sent @phone_number A
+    # phone number that is being authenticated @type Describes the way
+    # the code was sent to the user @next_type Describes the
+    # way the next code will be sent to the user;
+    # may be null @timeout Timeout before the code should be re-sent, in seconds
 
     phone_number = None  # type: "string"
     type = None  # type: "AuthenticationCodeType"
@@ -15,9 +15,9 @@ class authenticationCodeInfo(Type):
 
 
 class changePhoneNumber(Method):
-    #  the phone number of the user and sends an
-    #  code to the user's new phone number. On success,
-    #  information about the sent code
+    # Changes the phone number of the user and sends an
+    # authentication code to the user's new phone number. On success,
+    # returns information about the sent code
 
     phone_number = None  # type: "string"
     allow_flash_call = None  # type: "Bool"
@@ -25,16 +25,16 @@ class changePhoneNumber(Method):
 
 
 class resendChangePhoneNumberCode(Method):
-    #  the authentication code sent to confirm a new phone
-    #  for the user. Works only if the previously received
-    #  next_code_type was not null
+    # Re-sends the authentication code sent to confirm a new phone
+    # number for the user. Works only if the previously received
+    # authenticationCodeInfo next_code_type was not null
 
     pass
 
 
 class sendPhoneNumberVerificationCode(Method):
-    #  a code to verify a phone number to be
-    #  to a user's Telegram Passport
+    # Sends a code to verify a phone number to be
+    # added to a user's Telegram Passport
 
     phone_number = None  # type: "string"
     allow_flash_call = None  # type: "Bool"
@@ -42,16 +42,16 @@ class sendPhoneNumberVerificationCode(Method):
 
 
 class resendPhoneNumberVerificationCode(Method):
-    #  the code to verify a phone number to be
-    #  to a user's Telegram Passport
+    # Re-sends the code to verify a phone number to be
+    # added to a user's Telegram Passport
 
     pass
 
 
 class sendPhoneNumberConfirmationCode(Method):
-    #  phone number confirmation code. Should be called when user
-    #  "https://t.me/confirmphone?phone=*******&hash=**********" or "tg://confirmphone?phone=*******&hash=**********" link @hash Value of the "hash"
-    #  from the link
+    # Sends phone number confirmation code. Should be called when user
+    # presses "https://t.me/confirmphone?phone=*******&hash=**********" or "tg://confirmphone?phone=*******&hash=**********" link @hash Value of the "hash"
+    # parameter from the link
 
     hash = None  # type: "string"
     phone_number = None  # type: "string"
@@ -60,6 +60,6 @@ class sendPhoneNumberConfirmationCode(Method):
 
 
 class resendPhoneNumberConfirmationCode(Method):
-    #  phone number confirmation code
+    # Resends phone number confirmation code
 
     pass

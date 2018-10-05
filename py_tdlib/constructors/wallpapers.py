@@ -2,12 +2,12 @@ from ..factory import Method, Type
 
 
 class wallpapers(Type):
-    #  a list of wallpapers @wallpapers A list of wallpapers
+    # Contains a list of wallpapers @wallpapers A list of wallpapers
 
     wallpapers = None  # type: "vector<wallpaper>"
 
 
 class getWallpapers(Method):
-    #  background wallpapers
+    # Returns background wallpapers
 
     pass

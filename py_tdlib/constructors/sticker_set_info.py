@@ -2,10 +2,10 @@ from ..factory import Type
 
 
 class stickerSetInfo(Type):
-    #  short information about a sticker set @id Identifier of
-    #  sticker set @title Title of the sticker set @name
-    #  of the sticker set @is_installed True, if the sticker
-    #  has been installed by current user
+    # Represents short information about a sticker set @id Identifier of
+    # the sticker set @title Title of the sticker set @name
+    # Name of the sticker set @is_installed True, if the sticker
+    # set has been installed by current user
 
     id = None  # type: "int64"
     title = None  # type: "string"

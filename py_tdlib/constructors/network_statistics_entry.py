@@ -2,11 +2,11 @@ from ..factory import Type
 
 
 class networkStatisticsEntryFile(Type):
-    #  information about the total amount of data that was
-    #  to send and receive files @file_type Type of the
-    #  the data is part of @network_type Type of the
-    #  the data was sent through. Call setNetworkType to maintain
-    #  actual network type
+    # Contains information about the total amount of data that was
+    # used to send and receive files @file_type Type of the
+    # file the data is part of @network_type Type of the
+    # network the data was sent through. Call setNetworkType to maintain
+    # the actual network type
 
     file_type = None  # type: "FileType"
     network_type = None  # type: "NetworkType"
@@ -15,9 +15,9 @@ class networkStatisticsEntryFile(Type):
 
 
 class networkStatisticsEntryCall(Type):
-    #  information about the total amount of data that was
-    #  for calls @network_type Type of the network the data
-    #  sent through. Call setNetworkType to maintain the actual network
+    # Contains information about the total amount of data that was
+    # used for calls @network_type Type of the network the data
+    # was sent through. Call setNetworkType to maintain the actual network type
 
     network_type = None  # type: "NetworkType"
     sent_bytes = None  # type: "int53"

@@ -2,12 +2,12 @@ from ..factory import Method, Type
 
 
 class testString(Type):
-    #  simple object containing a string; for testing only @value
+    # A simple object containing a string; for testing only @value String
 
     value = None  # type: "string"
 
 
 class testCallString(Method):
-    #  the received string; for testing only @x String to
+    # Returns the received string; for testing only @x String to return
 
     x = None  # type: "string"

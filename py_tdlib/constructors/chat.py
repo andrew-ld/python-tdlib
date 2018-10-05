@@ -2,7 +2,7 @@ from ..factory import Method, Type
 
 
 class chat(Type):
-    #  chat. (Can be a private chat, basic group, supergroup, or secret chat)
+    # A chat. (Can be a private chat, basic group, supergroup, or secret chat)
 
     id = None  # type: "int53"
     type = None  # type: "ChatType"
@@ -26,74 +26,74 @@ class chat(Type):
 
 
 class getChat(Method):
-    #  information about a chat by its identifier, this is
-    #  offline request if the current user is not a
-    #  @chat_id Chat identifier
+    # Returns information about a chat by its identifier, this is
+    # an offline request if the current user is not a
+    # bot @chat_id Chat identifier
 
     chat_id = None  # type: "int53"
 
 
 class searchPublicChat(Method):
-    #  a public chat by its username. Currently only private
-    #  supergroups and channels can be public. Returns the chat
-    #  found; otherwise an error is returned @username Username to be resolved
+    # Searches a public chat by its username. Currently only private
+    # chats, supergroups and channels can be public. Returns the chat
+    # if found; otherwise an error is returned @username Username to be resolved
 
     username = None  # type: "string"
 
 
 class createPrivateChat(Method):
-    #  an existing chat corresponding to a given user @user_id
-    #  identifier @force If true, the chat will be created
-    #  network request. In this case all information about the
-    #  except its type, title and photo can be incorrect
+    # Returns an existing chat corresponding to a given user @user_id
+    # User identifier @force If true, the chat will be created
+    # without network request. In this case all information about the
+    # chat except its type, title and photo can be incorrect
 
     user_id = None  # type: "int32"
     force = None  # type: "Bool"
 
 
 class createBasicGroupChat(Method):
-    #  an existing chat corresponding to a known basic group
-    #  Basic group identifier @force If true, the chat will
-    #  created without network request. In this case all information
-    #  the chat except its type, title and photo can be incorrect
+    # Returns an existing chat corresponding to a known basic group
+    # @basic_group_id Basic group identifier @force If true, the chat will
+    # be created without network request. In this case all information
+    # about the chat except its type, title and photo can be incorrect
 
     basic_group_id = None  # type: "int32"
     force = None  # type: "Bool"
 
 
 class createSupergroupChat(Method):
-    #  an existing chat corresponding to a known supergroup or
-    #  @supergroup_id Supergroup or channel identifier @force If true, the
-    #  will be created without network request. In this case
-    #  information about the chat except its type, title and
-    #  can be incorrect
+    # Returns an existing chat corresponding to a known supergroup or
+    # channel @supergroup_id Supergroup or channel identifier @force If true, the
+    # chat will be created without network request. In this case
+    # all information about the chat except its type, title and
+    # photo can be incorrect
 
     supergroup_id = None  # type: "int32"
     force = None  # type: "Bool"
 
 
 class createSecretChat(Method):
-    #  an existing chat corresponding to a known secret chat
-    #  Secret chat identifier
+    # Returns an existing chat corresponding to a known secret chat
+    # @secret_chat_id Secret chat identifier
 
     secret_chat_id = None  # type: "int32"
 
 
 class createNewBasicGroupChat(Method):
-    #  a new basic group and sends a corresponding messageBasicGroupChatCreate.
-    #  the newly created chat @user_ids Identifiers of users to
-    #  added to the basic group @title Title of the
-    #  basic group; 1-255 characters
+    # Creates a new basic group and sends a corresponding messageBasicGroupChatCreate.
+    # Returns the newly created chat @user_ids Identifiers of users to
+    # be added to the basic group @title Title of the
+    # new basic group; 1-255 characters
 
     user_ids = None  # type: "vector<int32>"
     title = None  # type: "string"
 
 
 class createNewSupergroupChat(Method):
-    #  a new supergroup or channel and sends a corresponding
-    #  Returns the newly created chat @title Title of the
-    #  chat; 1-255 characters @is_channel True, if a channel chat
-    #  be created @param_description Chat description; 0-255 characters
+    # Creates a new supergroup or channel and sends a corresponding
+    # messageSupergroupChatCreate. Returns the newly created chat @title Title of the
+    # new chat; 1-255 characters @is_channel True, if a channel chat
+    # should be created @param_description Chat description; 0-255 characters
 
     title = None  # type: "string"
     is_channel = None  # type: "Bool"
@@ -101,23 +101,23 @@ class createNewSupergroupChat(Method):
 
 
 class createNewSecretChat(Method):
-    #  a new secret chat. Returns the newly created chat
-    #  Identifier of the target user
+    # Creates a new secret chat. Returns the newly created chat
+    # @user_id Identifier of the target user
 
     user_id = None  # type: "int32"
 
 
 class upgradeBasicGroupChatToSupergroupChat(Method):
-    #  a new supergroup from an existing basic group and
-    #  a corresponding messageChatUpgradeTo and messageChatUpgradeFrom. Deactivates the original basic
-    #  @chat_id Identifier of the chat to upgrade
+    # Creates a new supergroup from an existing basic group and
+    # sends a corresponding messageChatUpgradeTo and messageChatUpgradeFrom. Deactivates the original basic
+    # group @chat_id Identifier of the chat to upgrade
 
     chat_id = None  # type: "int53"
 
 
 class joinChatByInviteLink(Method):
-    #  an invite link to add the current user to
-    #  chat if possible. The new member will not be
-    #  until the chat state has been synchronized with the
+    # Uses an invite link to add the current user to
+    # the chat if possible. The new member will not be
+    # added until the chat state has been synchronized with the server
 
     invite_link = None  # type: "string"

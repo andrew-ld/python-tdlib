@@ -2,19 +2,19 @@ from ..factory import Type
 
 
 class chatMemberStatusCreator(Type):
-    #  user is the creator of a chat and has
-    #  the administrator privileges @is_member True, if the user is
-    #  member of the chat
+    # The user is the creator of a chat and has
+    # all the administrator privileges @is_member True, if the user is
+    # a member of the chat
 
     is_member = None  # type: "Bool"
 
 
 class chatMemberStatusAdministrator(Type):
-    #  user is a member of a chat and has
-    #  additional privileges. In basic groups, administrators can edit and
-    #  messages sent by others, add new members, and ban
-    #  members. In supergroups and channels, there are more detailed
-    #  for administrator privileges
+    # The user is a member of a chat and has
+    # some additional privileges. In basic groups, administrators can edit and
+    # delete messages sent by others, add new members, and ban
+    # unprivileged members. In supergroups and channels, there are more detailed
+    # options for administrator privileges
 
     can_be_edited = None  # type: "Bool"
     can_change_info = None  # type: "Bool"
@@ -28,15 +28,15 @@ class chatMemberStatusAdministrator(Type):
 
 
 class chatMemberStatusMember(Type):
-    #  user is a member of a chat, without any
-    #  privileges or restrictions
+    # The user is a member of a chat, without any
+    # additional privileges or restrictions
 
     pass
 
 
 class chatMemberStatusRestricted(Type):
-    #  user is under certain restrictions in the chat. Not
-    #  in basic groups and channels
+    # The user is under certain restrictions in the chat. Not
+    # supported in basic groups and channels
 
     is_member = None  # type: "Bool"
     restricted_until_date = None  # type: "int32"
@@ -47,14 +47,14 @@ class chatMemberStatusRestricted(Type):
 
 
 class chatMemberStatusLeft(Type):
-    #  user is not a chat member
+    # The user is not a chat member
 
     pass
 
 
 class chatMemberStatusBanned(Type):
-    #  user was banned (and hence is not a member
-    #  the chat). Implies the user can't return to the
-    #  or view messages
+    # The user was banned (and hence is not a member
+    # of the chat). Implies the user can't return to the
+    # chat or view messages
 
     banned_until_date = None  # type: "int32"

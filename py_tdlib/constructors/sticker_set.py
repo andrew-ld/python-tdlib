@@ -2,10 +2,10 @@ from ..factory import Method, Type
 
 
 class stickerSet(Type):
-    #  a sticker set @id Identifier of the sticker set
-    #  Title of the sticker set @name Name of the
-    #  set @is_installed True, if the sticker set has been
-    #  by the current user
+    # Represents a sticker set @id Identifier of the sticker set
+    # @title Title of the sticker set @name Name of the
+    # sticker set @is_installed True, if the sticker set has been
+    # installed by the current user
 
     id = None  # type: "int64"
     title = None  # type: "string"
@@ -20,25 +20,25 @@ class stickerSet(Type):
 
 
 class getStickerSet(Method):
-    #  information about a sticker set by its identifier @set_id
-    #  of the sticker set
+    # Returns information about a sticker set by its identifier @set_id
+    # Identifier of the sticker set
 
     set_id = None  # type: "int64"
 
 
 class searchStickerSet(Method):
-    #  for a sticker set by its name @name Name
-    #  the sticker set
+    # Searches for a sticker set by its name @name Name
+    # of the sticker set
 
     name = None  # type: "string"
 
 
 class createNewStickerSet(Method):
-    #  a new sticker set; for bots only. Returns the
-    #  created sticker set @user_id Sticker set owner @title Sticker
-    #  title; 1-64 characters @name Sticker set name. Can contain
-    #  English letters, digits and underscores. Must end with *"_by_<bot
-    #  (*<bot_username>* is case insensitive); 1-64 characters
+    # Creates a new sticker set; for bots only. Returns the
+    # newly created sticker set @user_id Sticker set owner @title Sticker
+    # set title; 1-64 characters @name Sticker set name. Can contain
+    # only English letters, digits and underscores. Must end with *"_by_<bot
+    # username>"* (*<bot_username>* is case insensitive); 1-64 characters
 
     user_id = None  # type: "int32"
     title = None  # type: "string"
@@ -48,9 +48,9 @@ class createNewStickerSet(Method):
 
 
 class addStickerToSet(Method):
-    #  a new sticker to a set; for bots only.
-    #  the sticker set @user_id Sticker set owner @name Sticker
-    #  name @sticker Sticker to add to the set
+    # Adds a new sticker to a set; for bots only.
+    # Returns the sticker set @user_id Sticker set owner @name Sticker
+    # set name @sticker Sticker to add to the set
 
     user_id = None  # type: "int32"
     name = None  # type: "string"

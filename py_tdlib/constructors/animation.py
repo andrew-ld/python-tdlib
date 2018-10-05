@@ -2,10 +2,10 @@ from ..factory import Type
 
 
 class animation(Type):
-    #  an animation file. The animation must be encoded in
-    #  or MPEG4 format @duration Duration of the animation, in
-    #  as defined by the sender @width Width of the
-    #  @height Height of the animation
+    # Describes an animation file. The animation must be encoded in
+    # GIF or MPEG4 format @duration Duration of the animation, in
+    # seconds; as defined by the sender @width Width of the
+    # animation @height Height of the animation
 
     duration = None  # type: "int32"
     width = None  # type: "int32"

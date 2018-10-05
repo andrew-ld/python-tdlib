@@ -2,7 +2,7 @@ from ..factory import Method, Type
 
 
 class message(Type):
-    #  a message
+    # Describes a message
 
     id = None  # type: "int53"
     sender_user_id = None  # type: "int32"
@@ -30,41 +30,41 @@ class message(Type):
 
 
 class getMessage(Method):
-    #  information about a message @chat_id Identifier of the chat
-    #  message belongs to @message_id Identifier of the message to
+    # Returns information about a message @chat_id Identifier of the chat
+    # the message belongs to @message_id Identifier of the message to get
 
     chat_id = None  # type: "int53"
     message_id = None  # type: "int53"
 
 
 class getRepliedMessage(Method):
-    #  information about a message that is replied by given
-    #  @chat_id Identifier of the chat the message belongs to
-    #  Identifier of the message reply to which get
+    # Returns information about a message that is replied by given
+    # message @chat_id Identifier of the chat the message belongs to
+    # @message_id Identifier of the message reply to which get
 
     chat_id = None  # type: "int53"
     message_id = None  # type: "int53"
 
 
 class getChatPinnedMessage(Method):
-    #  information about a pinned chat message @chat_id Identifier of
-    #  chat the message belongs to
+    # Returns information about a pinned chat message @chat_id Identifier of
+    # the chat the message belongs to
 
     chat_id = None  # type: "int53"
 
 
 class getChatMessageByDate(Method):
-    #  the last message sent in a chat no later
-    #  the specified date @chat_id Chat identifier @date Point in
-    #  (Unix timestamp) relative to which to search for messages
+    # Returns the last message sent in a chat no later
+    # than the specified date @chat_id Chat identifier @date Point in
+    # time (Unix timestamp) relative to which to search for messages
 
     chat_id = None  # type: "int53"
     date = None  # type: "int32"
 
 
 class sendMessage(Method):
-    #  a message. Returns the sent message @chat_id Target chat
-    #  Identifier of the message to reply to or 0
+    # Sends a message. Returns the sent message @chat_id Target chat
+    # @reply_to_message_id Identifier of the message to reply to or 0
 
     chat_id = None  # type: "int53"
     reply_to_message_id = None  # type: "int53"
@@ -75,12 +75,12 @@ class sendMessage(Method):
 
 
 class sendBotStartMessage(Method):
-    #  a bot to a chat (if it is not
-    #  a member) and sends it the /start command. Bots
-    #  be invited to a private chat other than the
-    #  with the bot. Bots can't be invited to channels
-    #  they can be added as admins) and secret chats.
-    #  the sent message
+    # Invites a bot to a chat (if it is not
+    # yet a member) and sends it the /start command. Bots
+    # can't be invited to a private chat other than the
+    # chat with the bot. Bots can't be invited to channels
+    # (although they can be added as admins) and secret chats.
+    # Returns the sent message
 
     bot_user_id = None  # type: "int32"
     chat_id = None  # type: "int53"
@@ -88,9 +88,9 @@ class sendBotStartMessage(Method):
 
 
 class sendInlineQueryResultMessage(Method):
-    #  the result of an inline query as a message.
-    #  the sent message. Always clears a chat draft message
-    #  Target chat @reply_to_message_id Identifier of a message to reply to or 0
+    # Sends the result of an inline query as a message.
+    # Returns the sent message. Always clears a chat draft message
+    # @chat_id Target chat @reply_to_message_id Identifier of a message to reply to or 0
 
     chat_id = None  # type: "int53"
     reply_to_message_id = None  # type: "int53"
@@ -101,20 +101,20 @@ class sendInlineQueryResultMessage(Method):
 
 
 class sendChatSetTtlMessage(Method):
-    #  the current TTL setting (sets a new self-destruct timer)
-    #  a secret chat and sends the corresponding message @chat_id
-    #  identifier @ttl New TTL value, in seconds
+    # Changes the current TTL setting (sets a new self-destruct timer)
+    # in a secret chat and sends the corresponding message @chat_id
+    # Chat identifier @ttl New TTL value, in seconds
 
     chat_id = None  # type: "int53"
     ttl = None  # type: "int32"
 
 
 class addLocalMessage(Method):
-    #  a local message to a chat. The message is
-    #  across application restarts only if the message database is
-    #  Returns the added message @chat_id Target chat @sender_user_id Identifier
-    #  the user who will be shown as the sender
-    #  the message; may be 0 for channel posts
+    # Adds a local message to a chat. The message is
+    # persistent across application restarts only if the message database is
+    # used. Returns the added message @chat_id Target chat @sender_user_id Identifier
+    # of the user who will be shown as the sender
+    # of the message; may be 0 for channel posts
 
     chat_id = None  # type: "int53"
     sender_user_id = None  # type: "int32"
@@ -124,9 +124,9 @@ class addLocalMessage(Method):
 
 
 class editMessageText(Method):
-    #  the text of a message (or a text of
-    #  game message). Returns the edited message after the edit
-    #  completed on the server side
+    # Edits the text of a message (or a text of
+    # a game message). Returns the edited message after the edit
+    # is completed on the server side
 
     chat_id = None  # type: "int53"
     message_id = None  # type: "int53"
@@ -135,10 +135,10 @@ class editMessageText(Method):
 
 
 class editMessageLiveLocation(Method):
-    #  the message content of a live location. Messages can
-    #  edited for a limited period of time specified in
-    #  live location. Returns the edited message after the edit
-    #  completed on the server side
+    # Edits the message content of a live location. Messages can
+    # be edited for a limited period of time specified in
+    # the live location. Returns the edited message after the edit
+    # is completed on the server side
 
     chat_id = None  # type: "int53"
     message_id = None  # type: "int53"
@@ -147,13 +147,13 @@ class editMessageLiveLocation(Method):
 
 
 class editMessageMedia(Method):
-    #  the content of a message with an animation, an
-    #  a document, a photo or a video. The media
-    #  the message can't be replaced if the message was
-    #  to self-destruct. Media can't be replaced by self-destructing media.
-    #  in an album can be edited only to contain
-    #  photo or a video. Returns the edited message after
-    #  edit is completed on the server side
+    # Edits the content of a message with an animation, an
+    # audio, a document, a photo or a video. The media
+    # in the message can't be replaced if the message was
+    # set to self-destruct. Media can't be replaced by self-destructing media.
+    # Media in an album can be edited only to contain
+    # a photo or a video. Returns the edited message after
+    # the edit is completed on the server side
 
     chat_id = None  # type: "int53"
     message_id = None  # type: "int53"
@@ -162,8 +162,8 @@ class editMessageMedia(Method):
 
 
 class editMessageCaption(Method):
-    #  the message content caption. Returns the edited message after
-    #  edit is completed on the server side
+    # Edits the message content caption. Returns the edited message after
+    # the edit is completed on the server side
 
     chat_id = None  # type: "int53"
     message_id = None  # type: "int53"
@@ -172,8 +172,8 @@ class editMessageCaption(Method):
 
 
 class editMessageReplyMarkup(Method):
-    #  the message reply markup; for bots only. Returns the
-    #  message after the edit is completed on the server
+    # Edits the message reply markup; for bots only. Returns the
+    # edited message after the edit is completed on the server side
 
     chat_id = None  # type: "int53"
     message_id = None  # type: "int53"
@@ -181,11 +181,11 @@ class editMessageReplyMarkup(Method):
 
 
 class setGameScore(Method):
-    #  the game score of the specified user in the
-    #  for bots only @chat_id The chat to which the
-    #  with the game @message_id Identifier of the message @edit_message
-    #  if the message should be edited @user_id User identifier
-    #  The new score
+    # Updates the game score of the specified user in the
+    # game; for bots only @chat_id The chat to which the
+    # message with the game @message_id Identifier of the message @edit_message
+    # True, if the message should be edited @user_id User identifier
+    # @score The new score
 
     chat_id = None  # type: "int53"
     message_id = None  # type: "int53"

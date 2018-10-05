@@ -2,10 +2,10 @@ from ..factory import Type
 
 
 class audio(Type):
-    #  an audio file. Audio is usually in MP3 format
-    #  Duration of the audio, in seconds; as defined by
-    #  sender @title Title of the audio; as defined by
-    #  sender @performer Performer of the audio; as defined by the sender
+    # Describes an audio file. Audio is usually in MP3 format
+    # @duration Duration of the audio, in seconds; as defined by
+    # the sender @title Title of the audio; as defined by
+    # the sender @performer Performer of the audio; as defined by the sender
 
     duration = None  # type: "int32"
     title = None  # type: "string"

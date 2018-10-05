@@ -2,11 +2,11 @@ from ..factory import Method, Type
 
 
 class proxy(Type):
-    #  information about a proxy server @id Unique identifier of
-    #  proxy @server Proxy server IP address @port Proxy server
-    #  @last_used_date Point in time (Unix timestamp) when the proxy
-    #  last used; 0 if never @is_enabled True, if the
-    #  is enabled now @type Type of the proxy
+    # Contains information about a proxy server @id Unique identifier of
+    # the proxy @server Proxy server IP address @port Proxy server
+    # port @last_used_date Point in time (Unix timestamp) when the proxy
+    # was last used; 0 if never @is_enabled True, if the
+    # proxy is enabled now @type Type of the proxy
 
     id = None  # type: "int32"
     server = None  # type: "string"
@@ -17,9 +17,9 @@ class proxy(Type):
 
 
 class addProxy(Method):
-    #  a proxy server for network requests. Can be called
-    #  authorization @server Proxy server IP address @port Proxy server
-    #  @enable True, if the proxy should be enabled @type Proxy type
+    # Adds a proxy server for network requests. Can be called
+    # before authorization @server Proxy server IP address @port Proxy server
+    # port @enable True, if the proxy should be enabled @type Proxy type
 
     server = None  # type: "string"
     port = None  # type: "int32"
@@ -28,10 +28,10 @@ class addProxy(Method):
 
 
 class editProxy(Method):
-    #  an existing proxy server for network requests. Can be
-    #  before authorization @proxy_id Proxy identifier @server Proxy server IP
-    #  @port Proxy server port @enable True, if the proxy
-    #  be enabled @type Proxy type
+    # Edits an existing proxy server for network requests. Can be
+    # called before authorization @proxy_id Proxy identifier @server Proxy server IP
+    # address @port Proxy server port @enable True, if the proxy
+    # should be enabled @type Proxy type
 
     proxy_id = None  # type: "int32"
     server = None  # type: "string"

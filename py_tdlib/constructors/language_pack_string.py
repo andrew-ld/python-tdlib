@@ -2,7 +2,7 @@ from ..factory import Type
 
 
 class languagePackString(Type):
-    #  one language pack string @key String key @value String
+    # Represents one language pack string @key String key @value String value
 
     key = None  # type: "string"
     value = None  # type: "LanguagePackStringValue"

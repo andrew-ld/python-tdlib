@@ -2,39 +2,39 @@ from ..factory import Type
 
 
 class supergroupMembersFilterRecent(Type):
-    #  recently active users in reverse chronological order
+    # Returns recently active users in reverse chronological order
 
     pass
 
 
 class supergroupMembersFilterAdministrators(Type):
-    #  the creator and administrators
+    # Returns the creator and administrators
 
     pass
 
 
 class supergroupMembersFilterSearch(Type):
-    #  to search for supergroup or channel members via a
-    #  query @query Query to search for
+    # Used to search for supergroup or channel members via a
+    # (string) query @query Query to search for
 
     query = None  # type: "string"
 
 
 class supergroupMembersFilterRestricted(Type):
-    #  restricted supergroup members; can be used only by administrators
-    #  Query to search for
+    # Returns restricted supergroup members; can be used only by administrators
+    # @query Query to search for
 
     query = None  # type: "string"
 
 
 class supergroupMembersFilterBanned(Type):
-    #  users banned from the supergroup or channel; can be
-    #  only by administrators @query Query to search for
+    # Returns users banned from the supergroup or channel; can be
+    # used only by administrators @query Query to search for
 
     query = None  # type: "string"
 
 
 class supergroupMembersFilterBots(Type):
-    #  bot members of the supergroup or channel
+    # Returns bot members of the supergroup or channel
 
     pass

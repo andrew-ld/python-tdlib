@@ -2,31 +2,31 @@ from ..factory import Type
 
 
 class connectionStateWaitingForNetwork(Type):
-    #  waiting for the network to become available. Use SetNetworkType
-    #  change the available network type
+    # Currently waiting for the network to become available. Use SetNetworkType
+    # to change the available network type
 
     pass
 
 
 class connectionStateConnectingToProxy(Type):
-    #  establishing a connection with a proxy server
+    # Currently establishing a connection with a proxy server
 
     pass
 
 
 class connectionStateConnecting(Type):
-    #  establishing a connection to the Telegram servers
+    # Currently establishing a connection to the Telegram servers
 
     pass
 
 
 class connectionStateUpdating(Type):
-    #  data received while the client was offline
+    # Downloading data received while the client was offline
 
     pass
 
 
 class connectionStateReady(Type):
-    #  is a working connection to the Telegram servers
+    # There is a working connection to the Telegram servers
 
     pass

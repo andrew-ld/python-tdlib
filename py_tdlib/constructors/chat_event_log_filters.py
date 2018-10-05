@@ -2,7 +2,7 @@ from ..factory import Type
 
 
 class chatEventLogFilters(Type):
-    #  a set of filters used to obtain a chat event log
+    # Represents a set of filters used to obtain a chat event log
 
     message_edits = None  # type: "Bool"
     message_deletions = None  # type: "Bool"

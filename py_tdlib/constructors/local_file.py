@@ -2,7 +2,7 @@ from ..factory import Type
 
 
 class localFile(Type):
-    #  a local file
+    # Represents a local file
 
     path = None  # type: "string"
     can_be_downloaded = None  # type: "Bool"

@@ -2,31 +2,31 @@ from ..factory import Method, Type
 
 
 class optionValueBoolean(Type):
-    #  option @value The value of the option
+    # Boolean option @value The value of the option
 
     value = None  # type: "Bool"
 
 
 class optionValueEmpty(Type):
-    #  unknown option or an option which has a default
+    # An unknown option or an option which has a default value
 
     pass
 
 
 class optionValueInteger(Type):
-    #  integer option @value The value of the option
+    # An integer option @value The value of the option
 
     value = None  # type: "int32"
 
 
 class optionValueString(Type):
-    #  string option @value The value of the option
+    # A string option @value The value of the option
 
     value = None  # type: "string"
 
 
 class getOption(Method):
-    #  the value of an option by its name. (Check
-    #  list of available options on https://core.telegram.org/tdlib/options.) Can be called before authorization
+    # Returns the value of an option by its name. (Check
+    # the list of available options on https://core.telegram.org/tdlib/options.) Can be called before authorization
 
     name = None  # type: "string"

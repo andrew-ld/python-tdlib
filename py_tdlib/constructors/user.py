@@ -2,8 +2,8 @@ from ..factory import Method, Type
 
 
 class user(Type):
-    #  a user @id User identifier @first_name First name of
-    #  user @last_name Last name of the user @username Username of the user
+    # Represents a user @id User identifier @first_name First name of
+    # the user @last_name Last name of the user @username Username of the user
 
     id = None  # type: "int32"
     first_name = None  # type: "string"
@@ -22,20 +22,20 @@ class user(Type):
 
 
 class getMe(Method):
-    #  the current user
+    # Returns the current user
 
     pass
 
 
 class getUser(Method):
-    #  information about a user by their identifier. This is
-    #  offline request if the current user is not a
-    #  @user_id User identifier
+    # Returns information about a user by their identifier. This is
+    # an offline request if the current user is not a
+    # bot @user_id User identifier
 
     user_id = None  # type: "int32"
 
 
 class getSupportUser(Method):
-    #  a user that can be contacted to get support
+    # Returns a user that can be contacted to get support
 
     pass

@@ -2,9 +2,9 @@ from ..factory import Type
 
 
 class video(Type):
-    #  a video file @duration Duration of the video, in
-    #  as defined by the sender @width Video width; as
-    #  by the sender @height Video height; as defined by the sender
+    # Describes a video file @duration Duration of the video, in
+    # seconds; as defined by the sender @width Video width; as
+    # defined by the sender @height Video height; as defined by the sender
 
     duration = None  # type: "int32"
     width = None  # type: "int32"

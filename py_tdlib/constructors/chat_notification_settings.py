@@ -2,7 +2,7 @@ from ..factory import Type
 
 
 class chatNotificationSettings(Type):
-    #  information about notification settings for a chat
+    # Contains information about notification settings for a chat
 
     use_default_mute_for = None  # type: "Bool"
     mute_for = None  # type: "int32"

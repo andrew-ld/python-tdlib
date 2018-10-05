@@ -2,7 +2,7 @@ from ..factory import Type
 
 
 class personalDetails(Type):
-    #  the user's personal details
+    # Contains the user's personal details
 
     first_name = None  # type: "string"
     middle_name = None  # type: "string"

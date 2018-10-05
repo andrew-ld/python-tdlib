@@ -2,9 +2,9 @@ from ..factory import Type
 
 
 class session(Type):
-    #  information about one session in a Telegram application used
-    #  the current user @id Session identifier @is_current True, if
-    #  session is the current session
+    # Contains information about one session in a Telegram application used
+    # by the current user @id Session identifier @is_current True, if
+    # this session is the current session
 
     id = None  # type: "int64"
     is_current = None  # type: "Bool"
