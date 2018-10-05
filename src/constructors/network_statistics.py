@@ -1,4 +1,4 @@
-from tdwrapper.factory import Method, Type
+from ..factory import Method, Type
 
 
 class networkStatistics(Type):

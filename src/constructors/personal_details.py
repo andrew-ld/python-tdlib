@@ -1,4 +1,4 @@
-from tdwrapper.factory import Type
+from ..factory import Type
 
 
 class personalDetails(Type):
