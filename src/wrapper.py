@@ -9,7 +9,6 @@ from .exception import RpcError, RpcTimeout
 
 class TdJsonClient:
     def __init__(self, td_json: CDLL):
-
         self.td_json_client_create = td_json.td_json_client_create
         self.td_json_client_create.restype = c_void_p
         self.td_json_client_create.argtypes = []
