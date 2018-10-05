@@ -2,7 +2,7 @@ from ..factory import Method, Type
 
 
 class networkStatistics(Type):
-    # A full list of available network statistic entries @since_date Point
+    # A full list of available network statistic entries, @since_date Point
     # in time (Unix timestamp) when the app began collecting statistics
     # @entries Network statistics entries
 

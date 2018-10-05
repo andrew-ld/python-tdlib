@@ -11,7 +11,7 @@ class passportElementErrorSourceUnspecified(Type):
 class passportElementErrorSourceDataField(Type):
     # One of the data fields contains an error. The error
     # will be considered resolved when the value of the field
-    # changes @field_name Field name
+    # changes, @field_name Field name
 
     field_name = None  # type: "string"
 

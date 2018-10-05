@@ -3,8 +3,8 @@ from ..factory import Method, Type
 
 class storageStatistics(Type):
     # Contains the exact storage usage statistics split by chats and
-    # file type @size Total size of files @count Total number
-    # of files @by_chat Statistics split by chats
+    # file type, @size Total size of files, @count Total number
+    # of files, @by_chat Statistics split by chats
 
     size = None  # type: "int53"
     count = None  # type: "int32"
@@ -12,7 +12,7 @@ class storageStatistics(Type):
 
 
 class getStorageStatistics(Method):
-    # Returns storage usage statistics @chat_limit Maximum number of chats with
+    # Returns storage usage statistics, @chat_limit Maximum number of chats with
     # the largest storage usage for which separate statistics should be
     # returned. All other chats will be grouped in entries with
     # chat_id == 0. If the chat info database is not

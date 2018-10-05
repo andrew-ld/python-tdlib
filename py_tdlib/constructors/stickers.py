@@ -2,7 +2,7 @@ from ..factory import Method, Type
 
 
 class stickers(Type):
-    # Represents a list of stickers @stickers List of stickers
+    # Represents a list of stickers, @stickers List of stickers
 
     stickers = None  # type: "vector<sticker>"
 
@@ -10,7 +10,7 @@ class stickers(Type):
 class getStickers(Method):
     # Returns stickers from the installed sticker sets that correspond to
     # a given emoji. If the emoji is not empty, favorite
-    # and recently used stickers may also be returned @emoji String
+    # and recently used stickers may also be returned, @emoji String
     # representation of emoji. If empty, returns all known installed stickers
     # @limit Maximum number of stickers to be returned
 
@@ -20,15 +20,15 @@ class getStickers(Method):
 
 class searchStickers(Method):
     # Searches for stickers from public sticker sets that correspond to
-    # a given emoji @emoji String representation of emoji; must be
-    # non-empty @limit Maximum number of stickers to be returned
+    # a given emoji, @emoji String representation of emoji; must be
+    # non-empty, @limit Maximum number of stickers to be returned
 
     emoji = None  # type: "string"
     limit = None  # type: "int32"
 
 
 class getRecentStickers(Method):
-    # Returns a list of recently used stickers @is_attached Pass true
+    # Returns a list of recently used stickers, @is_attached Pass true
     # to return stickers and masks that were recently attached to
     # photos or video files; pass false to return recently sent stickers
 

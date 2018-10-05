@@ -2,7 +2,7 @@ from ..factory import Method, Type
 
 
 class tMeUrls(Type):
-    # Contains a list of t.me URLs @urls List of URLs
+    # Contains a list of t.me URLs, @urls List of URLs
 
     urls = None  # type: "vector<tMeUrl>"
 

@@ -2,8 +2,8 @@ from ..factory import Method, Type
 
 
 class foundMessages(Type):
-    # Contains a list of messages found by a search @messages
-    # List of messages @next_from_search_id Value to pass as from_search_id to get more results
+    # Contains a list of messages found by a search, @messages
+    # List of messages, @next_from_search_id Value to pass as from_search_id to get more results
 
     messages = None  # type: "vector<message>"
     next_from_search_id = None  # type: "int64"

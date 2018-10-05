@@ -22,6 +22,6 @@ class supergroupFullInfo(Type):
 
 class getSupergroupFullInfo(Method):
     # Returns full information about a supergroup or channel by its
-    # identifier, cached for up to 1 minute @supergroup_id Supergroup or channel identifier
+    # identifier, cached for up to 1 minute, @supergroup_id Supergroup or channel identifier
 
     supergroup_id = None  # type: "int32"

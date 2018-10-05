@@ -30,8 +30,8 @@ class message(Type):
 
 
 class getMessage(Method):
-    # Returns information about a message @chat_id Identifier of the chat
-    # the message belongs to @message_id Identifier of the message to get
+    # Returns information about a message, @chat_id Identifier of the chat
+    # the message belongs to, @message_id Identifier of the message to get
 
     chat_id = None  # type: "int53"
     message_id = None  # type: "int53"
@@ -39,7 +39,7 @@ class getMessage(Method):
 
 class getRepliedMessage(Method):
     # Returns information about a message that is replied by given
-    # message @chat_id Identifier of the chat the message belongs to
+    # message, @chat_id Identifier of the chat the message belongs to
     # @message_id Identifier of the message reply to which get
 
     chat_id = None  # type: "int53"
@@ -47,7 +47,7 @@ class getRepliedMessage(Method):
 
 
 class getChatPinnedMessage(Method):
-    # Returns information about a pinned chat message @chat_id Identifier of
+    # Returns information about a pinned chat message, @chat_id Identifier of
     # the chat the message belongs to
 
     chat_id = None  # type: "int53"
@@ -55,7 +55,7 @@ class getChatPinnedMessage(Method):
 
 class getChatMessageByDate(Method):
     # Returns the last message sent in a chat no later
-    # than the specified date @chat_id Chat identifier @date Point in
+    # than the specified date, @chat_id Chat identifier, @date Point in
     # time (Unix timestamp) relative to which to search for messages
 
     chat_id = None  # type: "int53"
@@ -63,7 +63,7 @@ class getChatMessageByDate(Method):
 
 
 class sendMessage(Method):
-    # Sends a message. Returns the sent message @chat_id Target chat
+    # Sends a message. Returns the sent message, @chat_id Target chat
     # @reply_to_message_id Identifier of the message to reply to or 0
 
     chat_id = None  # type: "int53"
@@ -90,7 +90,7 @@ class sendBotStartMessage(Method):
 class sendInlineQueryResultMessage(Method):
     # Sends the result of an inline query as a message.
     # Returns the sent message. Always clears a chat draft message
-    # @chat_id Target chat @reply_to_message_id Identifier of a message to reply to or 0
+    # @chat_id Target chat, @reply_to_message_id Identifier of a message to reply to or 0
 
     chat_id = None  # type: "int53"
     reply_to_message_id = None  # type: "int53"
@@ -102,8 +102,8 @@ class sendInlineQueryResultMessage(Method):
 
 class sendChatSetTtlMessage(Method):
     # Changes the current TTL setting (sets a new self-destruct timer)
-    # in a secret chat and sends the corresponding message @chat_id
-    # Chat identifier @ttl New TTL value, in seconds
+    # in a secret chat and sends the corresponding message, @chat_id
+    # Chat identifier, @ttl New TTL value, in seconds
 
     chat_id = None  # type: "int53"
     ttl = None  # type: "int32"
@@ -112,7 +112,7 @@ class sendChatSetTtlMessage(Method):
 class addLocalMessage(Method):
     # Adds a local message to a chat. The message is
     # persistent across application restarts only if the message database is
-    # used. Returns the added message @chat_id Target chat @sender_user_id Identifier
+    # used. Returns the added message, @chat_id Target chat, @sender_user_id Identifier
     # of the user who will be shown as the sender
     # of the message; may be 0 for channel posts
 
@@ -182,9 +182,9 @@ class editMessageReplyMarkup(Method):
 
 class setGameScore(Method):
     # Updates the game score of the specified user in the
-    # game; for bots only @chat_id The chat to which the
-    # message with the game @message_id Identifier of the message @edit_message
-    # True, if the message should be edited @user_id User identifier
+    # game; for bots only, @chat_id The chat to which the
+    # message with the game, @message_id Identifier of the message, @edit_message
+    # True, if the message should be edited, @user_id User identifier
     # @score The new score
 
     chat_id = None  # type: "int53"

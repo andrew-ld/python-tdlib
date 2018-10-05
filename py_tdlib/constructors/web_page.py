@@ -2,8 +2,8 @@ from ..factory import Method, Type
 
 
 class webPage(Type):
-    # Describes a web page preview @url Original URL of the
-    # link @display_url URL to display
+    # Describes a web page preview, @url Original URL of the
+    # link, @display_url URL to display
 
     url = None  # type: "string"
     display_url = None  # type: "string"
@@ -31,7 +31,7 @@ class webPage(Type):
 class getWebPagePreview(Method):
     # Returns a web page preview by the text of the
     # message. Do not call this function too often. Returns a
-    # 404 error if the web page has no preview @text
+    # 404 error if the web page has no preview, @text
     # Message text with formatting
 
     text = None  # type: "formattedText"

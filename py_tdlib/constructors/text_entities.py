@@ -2,7 +2,7 @@ from ..factory import Method, Type
 
 
 class textEntities(Type):
-    # Contains a list of text entities @entities List of text entities
+    # Contains a list of text entities, @entities List of text entities
 
     entities = None  # type: "vector<textEntity>"
 

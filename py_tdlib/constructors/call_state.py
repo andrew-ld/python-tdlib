@@ -3,8 +3,8 @@ from ..factory import Type
 
 class callStatePending(Type):
     # The call is pending, waiting to be accepted by a
-    # user @is_created True, if the call has already been created
-    # by the server @is_received True, if the call has already
+    # user, @is_created True, if the call has already been created
+    # by the server, @is_received True, if the call has already
     # been received by the other party
 
     is_created = None  # type: "Bool"
@@ -18,9 +18,9 @@ class callStateExchangingKeys(Type):
 
 
 class callStateReady(Type):
-    # The call is ready to use @protocol Call protocols supported
-    # by the peer @connections Available UDP reflectors @config A JSON-encoded
-    # call config @encryption_key Call encryption key @emojis Encryption key emojis fingerprint
+    # The call is ready to use, @protocol Call protocols supported
+    # by the peer, @connections Available UDP reflectors, @config A JSON-encoded
+    # call config, @encryption_key Call encryption key, @emojis Encryption key emojis fingerprint
 
     protocol = None  # type: "callProtocol"
     connections = None  # type: "vector<callConnection>"
@@ -36,9 +36,9 @@ class callStateHangingUp(Type):
 
 
 class callStateDiscarded(Type):
-    # The call has ended successfully @reason The reason, why the
-    # call has ended @need_rating True, if the call rating should
-    # be sent to the server @need_debug_information True, if the call
+    # The call has ended successfully, @reason The reason, why the
+    # call has ended, @need_rating True, if the call rating should
+    # be sent to the server, @need_debug_information True, if the call
     # debug information should be sent to the server
 
     reason = None  # type: "CallDiscardReason"
@@ -47,7 +47,7 @@ class callStateDiscarded(Type):
 
 
 class callStateError(Type):
-    # The call has ended with an error @error Error. An
+    # The call has ended with an error, @error Error. An
     # error with the code 4005000 will be returned if an
     # outgoing call is missed because of an expired timeout
 

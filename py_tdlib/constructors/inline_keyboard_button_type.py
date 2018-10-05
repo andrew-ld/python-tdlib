@@ -2,7 +2,7 @@ from ..factory import Type
 
 
 class inlineKeyboardButtonTypeUrl(Type):
-    # A button that opens a specified URL @url HTTP or
+    # A button that opens a specified URL, @url HTTP or
     # tg:// URL to open
 
     url = None  # type: "string"
@@ -10,7 +10,7 @@ class inlineKeyboardButtonTypeUrl(Type):
 
 class inlineKeyboardButtonTypeCallback(Type):
     # A button that sends a special callback query to a
-    # bot @data Data to be sent to the bot via a callback query
+    # bot, @data Data to be sent to the bot via a callback query
 
     data = None  # type: "bytes"
 
@@ -26,8 +26,8 @@ class inlineKeyboardButtonTypeCallbackGame(Type):
 
 class inlineKeyboardButtonTypeSwitchInline(Type):
     # A button that forces an inline query to the bot
-    # to be inserted in the input field @query Inline query
-    # to be sent to the bot @in_current_chat True, if the
+    # to be inserted in the input field, @query Inline query
+    # to be sent to the bot, @in_current_chat True, if the
     # inline query should be sent from the current chat
 
     query = None  # type: "string"

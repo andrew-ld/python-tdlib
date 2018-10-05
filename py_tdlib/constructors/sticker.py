@@ -2,9 +2,9 @@ from ..factory import Type
 
 
 class sticker(Type):
-    # Describes a sticker @set_id The identifier of the sticker set
-    # to which the sticker belongs; 0 if none @width Sticker
-    # width; as defined by the sender @height Sticker height; as
+    # Describes a sticker, @set_id The identifier of the sticker set
+    # to which the sticker belongs; 0 if none, @width Sticker
+    # width; as defined by the sender, @height Sticker height; as
     # defined by the sender
 
     set_id = None  # type: "int64"

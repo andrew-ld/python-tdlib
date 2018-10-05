@@ -3,7 +3,7 @@ from ..factory import Type
 
 class passportSuitableElement(Type):
     # Contains information about a Telegram Passport element that was requested
-    # by a service @type Type of the element @is_selfie_required True,
+    # by a service, @type Type of the element, @is_selfie_required True,
     # if a selfie is required with the identity document
 
     type = None  # type: "PassportElementType"

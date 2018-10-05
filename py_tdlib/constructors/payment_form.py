@@ -2,8 +2,8 @@ from ..factory import Method, Type
 
 
 class paymentForm(Type):
-    # Contains information about an invoice payment form @invoice Full information
-    # of the invoice @url Payment form URL @payments_provider Contains information
+    # Contains information about an invoice payment form, @invoice Full information
+    # of the invoice, @url Payment form URL, @payments_provider Contains information
     # about the payment provider, if available, to support it natively
     # without the need for opening the URL; may be null
 
@@ -18,8 +18,8 @@ class paymentForm(Type):
 
 class getPaymentForm(Method):
     # Returns an invoice payment form. This method should be called
-    # when the user presses inlineKeyboardButtonBuy @chat_id Chat identifier of the
-    # Invoice message @message_id Message identifier
+    # when the user presses inlineKeyboardButtonBuy, @chat_id Chat identifier of the
+    # Invoice message, @message_id Message identifier
 
     chat_id = None  # type: "int53"
     message_id = None  # type: "int53"

@@ -2,8 +2,8 @@ from ..factory import Type
 
 
 class inputIdentityDocument(Type):
-    # An identity document to be saved to Telegram Passport @number
-    # Document number; 1-24 characters @expiry_date Document expiry date, if available
+    # An identity document to be saved to Telegram Passport, @number
+    # Document number; 1-24 characters, @expiry_date Document expiry date, if available
     # @front_side Front side of the document
 
     number = None  # type: "string"

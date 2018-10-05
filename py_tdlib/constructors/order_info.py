@@ -2,8 +2,8 @@ from ..factory import Method, Type
 
 
 class orderInfo(Type):
-    # Order information @name Name of the user @phone_number Phone number
-    # of the user @email_address Email address of the user @shipping_address
+    # Order information, @name Name of the user, @phone_number Phone number
+    # of the user, @email_address Email address of the user, @shipping_address
     # Shipping address for this order; may be null
 
     name = None  # type: "string"

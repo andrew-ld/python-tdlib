@@ -3,7 +3,7 @@ from ..factory import Method, Type
 
 class publicMessageLink(Type):
     # Contains a public HTTPS link to a message in a
-    # public supergroup or channel @link Message link @html HTML-code for embedding the message
+    # public supergroup or channel, @link Message link, @html HTML-code for embedding the message
 
     link = None  # type: "string"
     html = None  # type: "string"

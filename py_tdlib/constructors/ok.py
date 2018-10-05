@@ -10,14 +10,14 @@ class ok(Type):
 
 class setTdlibParameters(Method):
     # Sets the parameters for TDLib initialization. Works only when the
-    # current authorization state is authorizationStateWaitTdlibParameters @parameters Parameters
+    # current authorization state is authorizationStateWaitTdlibParameters, @parameters Parameters
 
     parameters = None  # type: "tdlibParameters"
 
 
 class checkDatabaseEncryptionKey(Method):
     # Checks the database encryption key for correctness. Works only when
-    # the current authorization state is authorizationStateWaitEncryptionKey @encryption_key Encryption key to
+    # the current authorization state is authorizationStateWaitEncryptionKey, @encryption_key Encryption key to
     # check or set up
 
     encryption_key = None  # type: "bytes"
@@ -43,7 +43,7 @@ class resendAuthenticationCode(Method):
 
 class checkAuthenticationCode(Method):
     # Checks the authentication code. Works only when the current authorization
-    # state is authorizationStateWaitCode @code The verification code received via SMS,
+    # state is authorizationStateWaitCode, @code The verification code received via SMS,
     # Telegram message, phone call, or flash call
 
     code = None  # type: "string"
@@ -53,7 +53,7 @@ class checkAuthenticationCode(Method):
 
 class checkAuthenticationPassword(Method):
     # Checks the authentication password for correctness. Works only when the
-    # current authorization state is authorizationStateWaitPassword @password The password to check
+    # current authorization state is authorizationStateWaitPassword, @password The password to check
 
     password = None  # type: "string"
 
@@ -69,7 +69,7 @@ class requestAuthenticationPasswordRecovery(Method):
 class recoverAuthenticationPassword(Method):
     # Recovers the password with a password recovery code sent to
     # an email address that was previously set up. Works only
-    # when the current authorization state is authorizationStateWaitPassword @recovery_code Recovery code to check
+    # when the current authorization state is authorizationStateWaitPassword, @recovery_code Recovery code to check
 
     recovery_code = None  # type: "string"
 
@@ -78,7 +78,7 @@ class checkAuthenticationBotToken(Method):
     # Checks the authentication token of a bot; to log in
     # as a bot. Works only when the current authorization state
     # is authorizationStateWaitPhoneNumber. Can be used instead of setAuthenticationPhoneNumber and checkAuthenticationCode
-    # to log in @token The bot token
+    # to log in, @token The bot token
 
     token = None  # type: "string"
 
@@ -110,14 +110,14 @@ class destroy(Method):
 
 class setDatabaseEncryptionKey(Method):
     # Changes the database encryption key. Usually the encryption key is
-    # never changed and is stored in some OS keychain @new_encryption_key New encryption key
+    # never changed and is stored in some OS keychain, @new_encryption_key New encryption key
 
     new_encryption_key = None  # type: "bytes"
 
 
 class processDcUpdate(Method):
     # Handles a DC_UPDATE push service notification. Can be called before
-    # authorization @dc Value of the "dc" parameter of the notification
+    # authorization, @dc Value of the "dc" parameter of the notification
     # @addr Value of the "addr" parameter of the notification
 
     dc = None  # type: "string"
@@ -126,8 +126,8 @@ class processDcUpdate(Method):
 
 class removeTopChat(Method):
     # Removes a chat from the list of frequently used chats.
-    # Supported only if the chat info database is enabled @category
-    # Category of frequently used chats @chat_id Chat identifier
+    # Supported only if the chat info database is enabled, @category
+    # Category of frequently used chats, @chat_id Chat identifier
 
     category = None  # type: "TopChatCategory"
     chat_id = None  # type: "int53"
@@ -137,7 +137,7 @@ class addRecentlyFoundChat(Method):
     # Adds a chat to the list of recently found chats.
     # The chat is added to the beginning of the list.
     # If the chat is already in the list, it will
-    # be removed from the list first @chat_id Identifier of the chat to add
+    # be removed from the list first, @chat_id Identifier of the chat to add
 
     chat_id = None  # type: "int53"
 
@@ -157,8 +157,8 @@ class clearRecentlyFoundChats(Method):
 
 class deleteChatHistory(Method):
     # Deletes all messages in the chat only for the user.
-    # Cannot be used in channels and public supergroups @chat_id Chat
-    # identifier @remove_from_chat_list Pass true if the chat should be removed
+    # Cannot be used in channels and public supergroups, @chat_id Chat
+    # identifier, @remove_from_chat_list Pass true if the chat should be removed
     # from the chats list
 
     chat_id = None  # type: "int53"
@@ -167,14 +167,14 @@ class deleteChatHistory(Method):
 
 class sendChatScreenshotTakenNotification(Method):
     # Sends a notification about a screenshot taken in a chat.
-    # Supported only in private and secret chats @chat_id Chat identifier
+    # Supported only in private and secret chats, @chat_id Chat identifier
 
     chat_id = None  # type: "int53"
 
 
 class deleteMessages(Method):
-    # Deletes messages @chat_id Chat identifier @message_ids Identifiers of the messages
-    # to be deleted @revoke Pass true to try to delete
+    # Deletes messages, @chat_id Chat identifier, @message_ids Identifiers of the messages
+    # to be deleted, @revoke Pass true to try to delete
     # outgoing messages for all chat members (may fail if messages
     # are too old). Always true for supergroups, channels and secret chats
 
@@ -185,8 +185,8 @@ class deleteMessages(Method):
 
 class deleteChatMessagesFromUser(Method):
     # Deletes all messages sent by the specified user to a
-    # chat. Supported only in supergroups; requires can_delete_messages administrator privileges @chat_id
-    # Chat identifier @user_id User identifier
+    # chat. Supported only in supergroups; requires can_delete_messages administrator privileges, @chat_id
+    # Chat identifier, @user_id User identifier
 
     chat_id = None  # type: "int53"
     user_id = None  # type: "int32"
@@ -194,8 +194,8 @@ class deleteChatMessagesFromUser(Method):
 
 class editInlineMessageText(Method):
     # Edits the text of an inline text or game message
-    # sent via a bot; for bots only @inline_message_id Inline message
-    # identifier @reply_markup The new message reply markup @input_message_content New text
+    # sent via a bot; for bots only, @inline_message_id Inline message
+    # identifier, @reply_markup The new message reply markup, @input_message_content New text
     # content of the message. Should be of type InputMessageText
 
     inline_message_id = None  # type: "string"
@@ -205,8 +205,8 @@ class editInlineMessageText(Method):
 
 class editInlineMessageLiveLocation(Method):
     # Edits the content of a live location in an inline
-    # message sent via a bot; for bots only @inline_message_id Inline
-    # message identifier @reply_markup The new message reply markup @location New
+    # message sent via a bot; for bots only, @inline_message_id Inline
+    # message identifier, @reply_markup The new message reply markup, @location New
     # location content of the message; may be null. Pass null
     # to stop sharing the live location
 
@@ -218,7 +218,7 @@ class editInlineMessageLiveLocation(Method):
 class editInlineMessageMedia(Method):
     # Edits the content of a message with an animation, an
     # audio, a document, a photo or a video in an
-    # inline message sent via a bot; for bots only @inline_message_id Inline message identifier
+    # inline message sent via a bot; for bots only, @inline_message_id Inline message identifier
 
     inline_message_id = None  # type: "string"
     reply_markup = None  # type: "ReplyMarkup"
@@ -227,8 +227,8 @@ class editInlineMessageMedia(Method):
 
 class editInlineMessageCaption(Method):
     # Edits the caption of an inline message sent via a
-    # bot; for bots only @inline_message_id Inline message identifier @reply_markup The
-    # new message reply markup @caption New message content caption; 0-GetOption("message_caption_length_max") characters
+    # bot; for bots only, @inline_message_id Inline message identifier, @reply_markup The
+    # new message reply markup, @caption New message content caption; 0-GetOption("message_caption_length_max") characters
 
     inline_message_id = None  # type: "string"
     reply_markup = None  # type: "ReplyMarkup"
@@ -237,7 +237,7 @@ class editInlineMessageCaption(Method):
 
 class editInlineMessageReplyMarkup(Method):
     # Edits the reply markup of an inline message sent via
-    # a bot; for bots only @inline_message_id Inline message identifier @reply_markup
+    # a bot; for bots only, @inline_message_id Inline message identifier, @reply_markup
     # The new message reply markup
 
     inline_message_id = None  # type: "string"
@@ -246,7 +246,7 @@ class editInlineMessageReplyMarkup(Method):
 
 class answerInlineQuery(Method):
     # Sets the result of an inline query; for bots only
-    # @inline_query_id Identifier of the inline query @is_personal True, if the
+    # @inline_query_id Identifier of the inline query, @is_personal True, if the
     # result of the query can be cached for the specified user
 
     inline_query_id = None  # type: "int64"
@@ -260,10 +260,10 @@ class answerInlineQuery(Method):
 
 class answerCallbackQuery(Method):
     # Sets the result of a callback query; for bots only
-    # @callback_query_id Identifier of the callback query @text Text of the
-    # answer @show_alert If true, an alert should be shown to
-    # the user instead of a toast notification @url URL to
-    # be opened @cache_time Time during which the result of the
+    # @callback_query_id Identifier of the callback query, @text Text of the
+    # answer, @show_alert If true, an alert should be shown to
+    # the user instead of a toast notification, @url URL to
+    # be opened, @cache_time Time during which the result of the
     # query can be cached, in seconds
 
     callback_query_id = None  # type: "int64"
@@ -275,7 +275,7 @@ class answerCallbackQuery(Method):
 
 class answerShippingQuery(Method):
     # Sets the result of a shipping query; for bots only
-    # @shipping_query_id Identifier of the shipping query @shipping_options Available shipping options
+    # @shipping_query_id Identifier of the shipping query, @shipping_options Available shipping options
     # @error_message An error message, empty on success
 
     shipping_query_id = None  # type: "int64"
@@ -285,7 +285,7 @@ class answerShippingQuery(Method):
 
 class answerPreCheckoutQuery(Method):
     # Sets the result of a pre-checkout query; for bots only
-    # @pre_checkout_query_id Identifier of the pre-checkout query @error_message An error message, empty on success
+    # @pre_checkout_query_id Identifier of the pre-checkout query, @error_message An error message, empty on success
 
     pre_checkout_query_id = None  # type: "int64"
     error_message = None  # type: "string"
@@ -293,8 +293,8 @@ class answerPreCheckoutQuery(Method):
 
 class setInlineGameScore(Method):
     # Updates the game score of the specified user in a
-    # game; for bots only @inline_message_id Inline message identifier @edit_message True,
-    # if the message should be edited @user_id User identifier @score The new score
+    # game; for bots only, @inline_message_id Inline message identifier, @edit_message True,
+    # if the message should be edited, @user_id User identifier, @score The new score
 
     inline_message_id = None  # type: "string"
     edit_message = None  # type: "Bool"
@@ -307,15 +307,15 @@ class deleteChatReplyMarkup(Method):
     # Deletes the default reply markup from a chat. Must be
     # called after a one-time keyboard or a ForceReply reply markup
     # has been used. UpdateChatReplyMarkup will be sent if the reply
-    # markup will be changed @chat_id Chat identifier
+    # markup will be changed, @chat_id Chat identifier
 
     chat_id = None  # type: "int53"
     message_id = None  # type: "int53"
 
 
 class sendChatAction(Method):
-    # Sends a notification about user activity in a chat @chat_id
-    # Chat identifier @action The action description
+    # Sends a notification about user activity in a chat, @chat_id
+    # Chat identifier, @action The action description
 
     chat_id = None  # type: "int53"
     action = None  # type: "ChatAction"
@@ -325,7 +325,7 @@ class openChat(Method):
     # This method should be called if the chat is opened
     # by the user. Many useful activities depend on the chat
     # being opened or closed (e.g., in supergroups and channels all
-    # updates are received only for opened chats) @chat_id Chat identifier
+    # updates are received only for opened chats), @chat_id Chat identifier
 
     chat_id = None  # type: "int53"
 
@@ -333,7 +333,7 @@ class openChat(Method):
 class closeChat(Method):
     # This method should be called if the chat is closed
     # by the user. Many useful activities depend on the chat
-    # being opened or closed @chat_id Chat identifier
+    # being opened or closed, @chat_id Chat identifier
 
     chat_id = None  # type: "int53"
 
@@ -343,7 +343,7 @@ class viewMessages(Method):
     # by the user. Many useful activities depend on whether the
     # messages are currently being viewed or not (e.g., marking messages
     # as read, incrementing a view counter, updating a view counter,
-    # removing deleted messages in supergroups and channels) @chat_id Chat identifier
+    # removing deleted messages in supergroups and channels), @chat_id Chat identifier
     # @message_ids The identifiers of the messages being viewed
 
     chat_id = None  # type: "int53"
@@ -356,15 +356,15 @@ class openMessageContent(Method):
     # been opened (e.g., the user has opened a photo, video,
     # document, location or venue, or has listened to an audio
     # file or voice note message). An updateMessageContentOpened update will be
-    # generated if something has changed @chat_id Chat identifier of the
-    # message @message_id Identifier of the message with the opened content
+    # generated if something has changed, @chat_id Chat identifier of the
+    # message, @message_id Identifier of the message with the opened content
 
     chat_id = None  # type: "int53"
     message_id = None  # type: "int53"
 
 
 class readAllChatMentions(Method):
-    # Marks all mentions in a chat as read @chat_id Chat identifier
+    # Marks all mentions in a chat as read, @chat_id Chat identifier
 
     chat_id = None  # type: "int53"
 
@@ -390,7 +390,7 @@ class setChatPhoto(Method):
 
 
 class setChatDraftMessage(Method):
-    # Changes the draft message in a chat @chat_id Chat identifier
+    # Changes the draft message in a chat, @chat_id Chat identifier
     # @draft_message New draft message; may be null
 
     chat_id = None  # type: "int53"
@@ -398,7 +398,7 @@ class setChatDraftMessage(Method):
 
 
 class setChatNotificationSettings(Method):
-    # Changes the notification settings of a chat @chat_id Chat identifier
+    # Changes the notification settings of a chat, @chat_id Chat identifier
     # @notification_settings New notification settings for the chat
 
     chat_id = None  # type: "int53"
@@ -408,15 +408,15 @@ class setChatNotificationSettings(Method):
 class toggleChatIsPinned(Method):
     # Changes the pinned state of a chat. You can pin
     # up to GetOption("pinned_chat_count_max") non-secret chats and the same number of
-    # secret chats @chat_id Chat identifier @is_pinned New value of is_pinned
+    # secret chats, @chat_id Chat identifier, @is_pinned New value of is_pinned
 
     chat_id = None  # type: "int53"
     is_pinned = None  # type: "Bool"
 
 
 class toggleChatIsMarkedAsUnread(Method):
-    # Changes the marked as unread state of a chat @chat_id
-    # Chat identifier @is_marked_as_unread New value of is_marked_as_unread
+    # Changes the marked as unread state of a chat, @chat_id
+    # Chat identifier, @is_marked_as_unread New value of is_marked_as_unread
 
     chat_id = None  # type: "int53"
     is_marked_as_unread = None  # type: "Bool"
@@ -424,7 +424,7 @@ class toggleChatIsMarkedAsUnread(Method):
 
 class toggleChatDefaultDisableNotification(Method):
     # Changes the value of the default disable_notification parameter, used when
-    # a message is sent to a chat @chat_id Chat identifier
+    # a message is sent to a chat, @chat_id Chat identifier
     # @default_disable_notification New value of default_disable_notification
 
     chat_id = None  # type: "int53"
@@ -432,7 +432,7 @@ class toggleChatDefaultDisableNotification(Method):
 
 
 class setChatClientData(Method):
-    # Changes client data associated with a chat @chat_id Chat identifier
+    # Changes client data associated with a chat, @chat_id Chat identifier
     # @client_data New value of client_data
 
     chat_id = None  # type: "int53"
@@ -441,14 +441,14 @@ class setChatClientData(Method):
 
 class joinChat(Method):
     # Adds current user as a new member to a chat.
-    # Private and secret chats can't be joined using this method @chat_id Chat identifier
+    # Private and secret chats can't be joined using this method, @chat_id Chat identifier
 
     chat_id = None  # type: "int53"
 
 
 class leaveChat(Method):
     # Removes current user from chat members. Private and secret chats
-    # can't be left using this method @chat_id Chat identifier
+    # can't be left using this method, @chat_id Chat identifier
 
     chat_id = None  # type: "int53"
 
@@ -487,14 +487,14 @@ class setChatMemberStatus(Method):
 
 
 class clearAllDraftMessages(Method):
-    # Clears draft messages in all chats @exclude_secret_chats If true, local
+    # Clears draft messages in all chats, @exclude_secret_chats If true, local
     # draft messages in secret chats will not be cleared
 
     exclude_secret_chats = None  # type: "Bool"
 
 
 class setScopeNotificationSettings(Method):
-    # Changes notification settings for chats of a given type @scope
+    # Changes notification settings for chats of a given type, @scope
     # Types of chats for which to change the notification settings
     # @notification_settings The new notification settings for the given scope
 
@@ -511,15 +511,15 @@ class resetAllNotificationSettings(Method):
 
 
 class setPinnedChats(Method):
-    # Changes the order of pinned chats @chat_ids The new list of pinned chats
+    # Changes the order of pinned chats, @chat_ids The new list of pinned chats
 
     chat_ids = None  # type: "vector<int53>"
 
 
 class cancelDownloadFile(Method):
     # Stops the downloading of a file. If a file has
-    # already been downloaded, does nothing @file_id Identifier of a file
-    # to stop downloading @only_if_pending Pass true to stop downloading only
+    # already been downloaded, does nothing, @file_id Identifier of a file
+    # to stop downloading, @only_if_pending Pass true to stop downloading only
     # if it hasn't been started, i.e. request hasn't been sent to server
 
     file_id = None  # type: "int32"
@@ -529,7 +529,7 @@ class cancelDownloadFile(Method):
 class cancelUploadFile(Method):
     # Stops the uploading of a file. Supported only for files
     # uploaded by using uploadFile. For other files the behavior is
-    # undefined @file_id Identifier of the file to stop uploading
+    # undefined, @file_id Identifier of the file to stop uploading
 
     file_id = None  # type: "int32"
 
@@ -550,14 +550,14 @@ class finishFileGeneration(Method):
 
 
 class deleteFile(Method):
-    # Deletes a file from the TDLib file cache @file_id Identifier
+    # Deletes a file from the TDLib file cache, @file_id Identifier
     # of the file to delete
 
     file_id = None  # type: "int32"
 
 
 class acceptCall(Method):
-    # Accepts an incoming call @call_id Call identifier @protocol Description of
+    # Accepts an incoming call, @call_id Call identifier, @protocol Description of
     # the call protocols supported by the client
 
     call_id = None  # type: "int32"
@@ -565,8 +565,8 @@ class acceptCall(Method):
 
 
 class discardCall(Method):
-    # Discards a call @call_id Call identifier @is_disconnected True, if the
-    # user was disconnected @duration The call duration, in seconds @connection_id
+    # Discards a call, @call_id Call identifier, @is_disconnected True, if the
+    # user was disconnected, @duration The call duration, in seconds, @connection_id
     # Identifier of the connection used during the call
 
     call_id = None  # type: "int32"
@@ -576,8 +576,8 @@ class discardCall(Method):
 
 
 class sendCallRating(Method):
-    # Sends a call rating @call_id Call identifier @rating Call rating;
-    # 1-5 @comment An optional user comment if the rating is less than 5
+    # Sends a call rating, @call_id Call identifier, @rating Call rating;
+    # 1-5, @comment An optional user comment if the rating is less than 5
 
     call_id = None  # type: "int32"
     rating = None  # type: "int32"
@@ -585,7 +585,7 @@ class sendCallRating(Method):
 
 
 class sendCallDebugInformation(Method):
-    # Sends debug information for a call @call_id Call identifier @debug_information
+    # Sends debug information for a call, @call_id Call identifier, @debug_information
     # Debug information in application-specific format
 
     call_id = None  # type: "int32"
@@ -593,19 +593,19 @@ class sendCallDebugInformation(Method):
 
 
 class blockUser(Method):
-    # Adds a user to the blacklist @user_id User identifier
+    # Adds a user to the blacklist, @user_id User identifier
 
     user_id = None  # type: "int32"
 
 
 class unblockUser(Method):
-    # Removes a user from the blacklist @user_id User identifier
+    # Removes a user from the blacklist, @user_id User identifier
 
     user_id = None  # type: "int32"
 
 
 class removeContacts(Method):
-    # Removes users from the contacts list @user_ids Identifiers of users to be deleted
+    # Removes users from the contacts list, @user_ids Identifiers of users to be deleted
 
     user_ids = None  # type: "vector<int32>"
 
@@ -617,8 +617,8 @@ class clearImportedContacts(Method):
 
 
 class changeStickerSet(Method):
-    # Installs/uninstalls or activates/archives a sticker set @set_id Identifier of the
-    # sticker set @is_installed The new value of is_installed @is_archived The
+    # Installs/uninstalls or activates/archives a sticker set, @set_id Identifier of the
+    # sticker set, @is_installed The new value of is_installed, @is_archived The
     # new value of is_archived. A sticker set can't be installed and archived simultaneously
 
     set_id = None  # type: "int64"
@@ -628,15 +628,15 @@ class changeStickerSet(Method):
 
 class viewTrendingStickerSets(Method):
     # Informs the server that some trending sticker sets have been
-    # viewed by the user @sticker_set_ids Identifiers of viewed trending sticker sets
+    # viewed by the user, @sticker_set_ids Identifiers of viewed trending sticker sets
 
     sticker_set_ids = None  # type: "vector<int64>"
 
 
 class reorderInstalledStickerSets(Method):
-    # Changes the order of installed sticker sets @is_masks Pass true
+    # Changes the order of installed sticker sets, @is_masks Pass true
     # to change the order of mask sticker sets; pass false
-    # to change the order of ordinary sticker sets @sticker_set_ids Identifiers
+    # to change the order of ordinary sticker sets, @sticker_set_ids Identifiers
     # of installed sticker sets in the new correct order
 
     is_masks = None  # type: "Bool"
@@ -648,14 +648,14 @@ class removeRecentSticker(Method):
     # @is_attached Pass true to remove the sticker from the list
     # of stickers recently attached to photo or video files; pass
     # false to remove the sticker from the list of recently
-    # sent stickers @sticker Sticker file to delete
+    # sent stickers, @sticker Sticker file to delete
 
     is_attached = None  # type: "Bool"
     sticker = None  # type: "InputFile"
 
 
 class clearRecentStickers(Method):
-    # Clears the list of recently used stickers @is_attached Pass true
+    # Clears the list of recently used stickers, @is_attached Pass true
     # to clear the list of stickers recently attached to photo
     # or video files; pass false to clear the list of recently sent stickers
 
@@ -673,7 +673,7 @@ class addFavoriteSticker(Method):
 
 
 class removeFavoriteSticker(Method):
-    # Removes a sticker from the list of favorite stickers @sticker
+    # Removes a sticker from the list of favorite stickers, @sticker
     # Sticker file to delete from the list
 
     sticker = None  # type: "InputFile"
@@ -690,7 +690,7 @@ class addSavedAnimation(Method):
 
 
 class removeSavedAnimation(Method):
-    # Removes an animation from the list of saved animations @animation
+    # Removes an animation from the list of saved animations, @animation
     # Animation file to be removed
 
     animation = None  # type: "InputFile"
@@ -705,7 +705,7 @@ class removeRecentHashtag(Method):
 
 class setProfilePhoto(Method):
     # Uploads a new profile photo for the current user. If
-    # something changes, updateUser will be sent @photo Profile photo to
+    # something changes, updateUser will be sent, @photo Profile photo to
     # set. inputFileId and inputFileRemote may still be unsupported
 
     photo = None  # type: "InputFile"
@@ -713,14 +713,14 @@ class setProfilePhoto(Method):
 
 class deleteProfilePhoto(Method):
     # Deletes a profile photo. If something changes, updateUser will be
-    # sent @profile_photo_id Identifier of the profile photo to delete
+    # sent, @profile_photo_id Identifier of the profile photo to delete
 
     profile_photo_id = None  # type: "int64"
 
 
 class setName(Method):
     # Changes the first and last name of the current user.
-    # If something changes, updateUser will be sent @first_name The new
+    # If something changes, updateUser will be sent, @first_name The new
     # value of the first name for the user; 1-255 characters
     # @last_name The new value of the optional last name for
     # the user; 0-255 characters
@@ -730,7 +730,7 @@ class setName(Method):
 
 
 class setBio(Method):
-    # Changes the bio of the current user @bio The new
+    # Changes the bio of the current user, @bio The new
     # value of the user bio; 0-70 characters without line feeds
 
     bio = None  # type: "string"
@@ -738,7 +738,7 @@ class setBio(Method):
 
 class setUsername(Method):
     # Changes the username of the current user. If something changes,
-    # updateUser will be sent @username The new value of the
+    # updateUser will be sent, @username The new value of the
     # username. Use an empty string to remove the username
 
     username = None  # type: "string"
@@ -746,14 +746,14 @@ class setUsername(Method):
 
 class checkChangePhoneNumberCode(Method):
     # Checks the authentication code sent to confirm a new phone
-    # number of the user @code Verification code received by SMS,
+    # number of the user, @code Verification code received by SMS,
     # phone call or flash call
 
     code = None  # type: "string"
 
 
 class terminateSession(Method):
-    # Terminates a session of the current user @session_id Session identifier
+    # Terminates a session of the current user, @session_id Session identifier
 
     session_id = None  # type: "int64"
 
@@ -765,7 +765,7 @@ class terminateAllOtherSessions(Method):
 
 
 class disconnectWebsite(Method):
-    # Disconnects website from the current user's Telegram account @website_id Website identifier
+    # Disconnects website from the current user's Telegram account, @website_id Website identifier
 
     website_id = None  # type: "int64"
 
@@ -778,8 +778,8 @@ class disconnectAllWebsites(Method):
 
 class toggleBasicGroupAdministrators(Method):
     # Toggles the "All members are admins" setting in basic groups;
-    # requires creator privileges in the group @basic_group_id Identifier of the
-    # basic group @everyone_is_administrator New value of everyone_is_administrator
+    # requires creator privileges in the group, @basic_group_id Identifier of the
+    # basic group, @everyone_is_administrator New value of everyone_is_administrator
 
     basic_group_id = None  # type: "int32"
     everyone_is_administrator = None  # type: "Bool"
@@ -787,8 +787,8 @@ class toggleBasicGroupAdministrators(Method):
 
 class setSupergroupUsername(Method):
     # Changes the username of a supergroup or channel, requires creator
-    # privileges in the supergroup or channel @supergroup_id Identifier of the
-    # supergroup or channel @username New value of the username. Use
+    # privileges in the supergroup or channel, @supergroup_id Identifier of the
+    # supergroup or channel, @username New value of the username. Use
     # an empty string to remove the username
 
     supergroup_id = None  # type: "int32"
@@ -797,7 +797,7 @@ class setSupergroupUsername(Method):
 
 class setSupergroupStickerSet(Method):
     # Changes the sticker set of a supergroup; requires appropriate rights
-    # in the supergroup @supergroup_id Identifier of the supergroup @sticker_set_id New
+    # in the supergroup, @supergroup_id Identifier of the supergroup, @sticker_set_id New
     # value of the supergroup sticker set identifier. Use 0 to
     # remove the supergroup sticker set
 
@@ -807,8 +807,8 @@ class setSupergroupStickerSet(Method):
 
 class toggleSupergroupInvites(Method):
     # Toggles whether all members of a supergroup can add new
-    # members; requires appropriate administrator rights in the supergroup. @supergroup_id Identifier
-    # of the supergroup @anyone_can_invite New value of anyone_can_invite
+    # members; requires appropriate administrator rights in the supergroup., @supergroup_id Identifier
+    # of the supergroup, @anyone_can_invite New value of anyone_can_invite
 
     supergroup_id = None  # type: "int32"
     anyone_can_invite = None  # type: "Bool"
@@ -816,7 +816,7 @@ class toggleSupergroupInvites(Method):
 
 class toggleSupergroupSignMessages(Method):
     # Toggles sender signatures messages sent in a channel; requires appropriate
-    # administrator rights in the channel. @supergroup_id Identifier of the channel
+    # administrator rights in the channel., @supergroup_id Identifier of the channel
     # @sign_messages New value of sign_messages
 
     supergroup_id = None  # type: "int32"
@@ -826,7 +826,7 @@ class toggleSupergroupSignMessages(Method):
 class toggleSupergroupIsAllHistoryAvailable(Method):
     # Toggles whether the message history of a supergroup is available
     # to new members; requires appropriate administrator rights in the supergroup.
-    # @supergroup_id The identifier of the supergroup @is_all_history_available The new value of is_all_history_available
+    # @supergroup_id The identifier of the supergroup, @is_all_history_available The new value of is_all_history_available
 
     supergroup_id = None  # type: "int32"
     is_all_history_available = None  # type: "Bool"
@@ -834,7 +834,7 @@ class toggleSupergroupIsAllHistoryAvailable(Method):
 
 class setSupergroupDescription(Method):
     # Changes information about a supergroup or channel; requires appropriate administrator
-    # rights @supergroup_id Identifier of the supergroup or channel @param_description New
+    # rights, @supergroup_id Identifier of the supergroup or channel, @param_description New
     # supergroup or channel description; 0-255 characters
 
     supergroup_id = None  # type: "int32"
@@ -843,9 +843,9 @@ class setSupergroupDescription(Method):
 
 class pinSupergroupMessage(Method):
     # Pins a message in a supergroup or channel; requires appropriate
-    # administrator rights in the supergroup or channel @supergroup_id Identifier of
-    # the supergroup or channel @message_id Identifier of the new pinned
-    # message @disable_notification True, if there should be no notification about the pinned message
+    # administrator rights in the supergroup or channel, @supergroup_id Identifier of
+    # the supergroup or channel, @message_id Identifier of the new pinned
+    # message, @disable_notification True, if there should be no notification about the pinned message
 
     supergroup_id = None  # type: "int32"
     message_id = None  # type: "int53"
@@ -854,7 +854,7 @@ class pinSupergroupMessage(Method):
 
 class unpinSupergroupMessage(Method):
     # Removes the pinned message from a supergroup or channel; requires
-    # appropriate administrator rights in the supergroup or channel @supergroup_id Identifier
+    # appropriate administrator rights in the supergroup or channel, @supergroup_id Identifier
     # of the supergroup or channel
 
     supergroup_id = None  # type: "int32"
@@ -862,8 +862,8 @@ class unpinSupergroupMessage(Method):
 
 class reportSupergroupSpam(Method):
     # Reports some messages from a user in a supergroup as
-    # spam; requires administrator rights in the supergroup @supergroup_id Supergroup identifier
-    # @user_id User identifier @message_ids Identifiers of messages sent in the
+    # spam; requires administrator rights in the supergroup, @supergroup_id Supergroup identifier
+    # @user_id User identifier, @message_ids Identifiers of messages sent in the
     # supergroup by the user. This list must be non-empty
 
     supergroup_id = None  # type: "int32"
@@ -876,7 +876,7 @@ class deleteSupergroup(Method):
     # the corresponding chat. This will release the supergroup or channel
     # username and remove all members; requires creator privileges in the
     # supergroup or channel. Chats with more than 1000 members can't
-    # be deleted using this method @supergroup_id Identifier of the supergroup or channel
+    # be deleted using this method, @supergroup_id Identifier of the supergroup or channel
 
     supergroup_id = None  # type: "int32"
 
@@ -902,9 +902,9 @@ class deleteSavedCredentials(Method):
 
 class setCustomLanguagePack(Method):
     # Adds or changes a custom language pack to the current
-    # localization target @info Information about the language pack. Language pack
+    # localization target, @info Information about the language pack. Language pack
     # ID must start with 'X', consist only of English letters,
-    # digits and hyphens, and must not exceed 64 characters @strings
+    # digits and hyphens, and must not exceed 64 characters, @strings
     # Strings of the new language pack
 
     info = None  # type: "languagePackInfo"
@@ -913,15 +913,15 @@ class setCustomLanguagePack(Method):
 
 class editCustomLanguagePackInfo(Method):
     # Edits information about a custom language pack in the current
-    # localization target @info New information about the custom language pack
+    # localization target, @info New information about the custom language pack
 
     info = None  # type: "languagePackInfo"
 
 
 class setCustomLanguagePackString(Method):
     # Adds, edits or deletes a string in a custom language
-    # pack @language_pack_id Identifier of a previously added custom language pack
-    # in the current localization target @new_string New language pack string
+    # pack, @language_pack_id Identifier of a previously added custom language pack
+    # in the current localization target, @new_string New language pack string
 
     language_pack_id = None  # type: "string"
     new_string = None  # type: "languagePackString"
@@ -930,14 +930,14 @@ class setCustomLanguagePackString(Method):
 class deleteLanguagePack(Method):
     # Deletes all information about a language pack in the current
     # localization target. The language pack that is currently in use
-    # can't be deleted @language_pack_id Identifier of the language pack to delete
+    # can't be deleted, @language_pack_id Identifier of the language pack to delete
 
     language_pack_id = None  # type: "string"
 
 
 class registerDevice(Method):
-    # Registers the currently used device for receiving push notifications @device_token
-    # Device token @other_user_ids List of at most 100 user identifiers
+    # Registers the currently used device for receiving push notifications, @device_token
+    # Device token, @other_user_ids List of at most 100 user identifiers
     # of other users currently using the client
 
     device_token = None  # type: "DeviceToken"
@@ -945,7 +945,7 @@ class registerDevice(Method):
 
 
 class setUserPrivacySettingRules(Method):
-    # Changes user privacy settings @setting The privacy setting @rules The new privacy rules
+    # Changes user privacy settings, @setting The privacy setting, @rules The new privacy rules
 
     setting = None  # type: "UserPrivacySetting"
     rules = None  # type: "userPrivacySettingRules"
@@ -962,7 +962,7 @@ class setOption(Method):
 
 class setAccountTtl(Method):
     # Changes the period of inactivity after which the account of
-    # the current user will automatically be deleted @ttl New account TTL
+    # the current user will automatically be deleted, @ttl New account TTL
 
     ttl = None  # type: "accountTtl"
 
@@ -972,7 +972,7 @@ class deleteAccount(Method):
     # associated with the user from the server. The phone number
     # of the account can be used to create a new
     # account. Can be called before authorization when the current authorization
-    # state is authorizationStateWaitPassword @reason The reason why the account was deleted; optional
+    # state is authorizationStateWaitPassword, @reason The reason why the account was deleted; optional
 
     reason = None  # type: "string"
 
@@ -980,8 +980,8 @@ class deleteAccount(Method):
 class changeChatReportSpamState(Method):
     # Used to let the server know whether a chat is
     # spam or not. Can be used only if ChatReportSpamState.can_report_spam is
-    # true. After this request, ChatReportSpamState.can_report_spam becomes false forever @chat_id Chat
-    # identifier @is_spam_chat If true, the chat will be reported as
+    # true. After this request, ChatReportSpamState.can_report_spam becomes false forever, @chat_id Chat
+    # identifier, @is_spam_chat If true, the chat will be reported as
     # spam; otherwise it will be marked as not spam
 
     chat_id = None  # type: "int53"
@@ -991,8 +991,8 @@ class changeChatReportSpamState(Method):
 class reportChat(Method):
     # Reports a chat to the Telegram moderators. Supported only for
     # supergroups, channels, or private chats with bots, since other chats
-    # can't be checked by moderators @chat_id Chat identifier @reason The
-    # reason for reporting the chat @message_ids Identifiers of reported messages, if any
+    # can't be checked by moderators, @chat_id Chat identifier, @reason The
+    # reason for reporting the chat, @message_ids Identifiers of reported messages, if any
 
     chat_id = None  # type: "int53"
     reason = None  # type: "ChatReportReason"
@@ -1011,7 +1011,7 @@ class setNetworkType(Method):
 
 class addNetworkStatistics(Method):
     # Adds the specified data to data usage statistics. Can be
-    # called before authorization @entry The network statistics entry with the
+    # called before authorization, @entry The network statistics entry with the
     # data to be added to statistics
 
     entry = None  # type: "NetworkStatisticsEntry"
@@ -1024,7 +1024,7 @@ class resetNetworkStatistics(Method):
 
 
 class deletePassportElement(Method):
-    # Deletes a Telegram Passport element @type Element type
+    # Deletes a Telegram Passport element, @type Element type
 
     type = None  # type: "PassportElementType"
 
@@ -1033,27 +1033,27 @@ class setPassportElementErrors(Method):
     # Informs the user that some of the elements in their
     # Telegram Passport contain errors; for bots only. The user will
     # not be able to resend the elements, until the errors
-    # are fixed @user_id User identifier @errors The errors
+    # are fixed, @user_id User identifier, @errors The errors
 
     user_id = None  # type: "int32"
     errors = None  # type: "vector<inputPassportElementError>"
 
 
 class checkPhoneNumberVerificationCode(Method):
-    # Checks the phone number verification code for Telegram Passport @code Verification code
+    # Checks the phone number verification code for Telegram Passport, @code Verification code
 
     code = None  # type: "string"
 
 
 class checkEmailAddressVerificationCode(Method):
-    # Checks the email address verification code for Telegram Passport @code Verification code
+    # Checks the email address verification code for Telegram Passport, @code Verification code
 
     code = None  # type: "string"
 
 
 class sendPassportAuthorizationForm(Method):
     # Sends a Telegram Passport authorization form, effectively sharing data with
-    # the service @autorization_form_id Authorization form identifier @types Types of Telegram
+    # the service, @autorization_form_id Authorization form identifier, @types Types of Telegram
     # Passport elements chosen by user to complete the authorization form
 
     autorization_form_id = None  # type: "int32"
@@ -1061,7 +1061,7 @@ class sendPassportAuthorizationForm(Method):
 
 
 class checkPhoneNumberConfirmationCode(Method):
-    # Checks phone number confirmation code @code The phone number confirmation code
+    # Checks phone number confirmation code, @code The phone number confirmation code
 
     code = None  # type: "string"
 
@@ -1069,7 +1069,7 @@ class checkPhoneNumberConfirmationCode(Method):
 class setBotUpdatesStatus(Method):
     # Informs the server about the number of pending bot updates
     # if they haven't been processed for a long time; for
-    # bots only @pending_update_count The number of pending updates @error_message The last error message
+    # bots only, @pending_update_count The number of pending updates, @error_message The last error message
 
     pending_update_count = None  # type: "int32"
     error_message = None  # type: "string"
@@ -1078,7 +1078,7 @@ class setBotUpdatesStatus(Method):
 class setStickerPositionInSet(Method):
     # Changes the position of a sticker in the set to
     # which it belongs; for bots only. The sticker set must
-    # have been created by the bot @sticker Sticker @position New
+    # have been created by the bot, @sticker Sticker, @position New
     # position of the sticker in the set, zero-based
 
     sticker = None  # type: "InputFile"
@@ -1088,20 +1088,20 @@ class setStickerPositionInSet(Method):
 class removeStickerFromSet(Method):
     # Removes a sticker from the set to which it belongs;
     # for bots only. The sticker set must have been created
-    # by the bot @sticker Sticker
+    # by the bot, @sticker Sticker
 
     sticker = None  # type: "InputFile"
 
 
 class acceptTermsOfService(Method):
-    # Accepts Telegram terms of services @terms_of_service_id Terms of service identifier
+    # Accepts Telegram terms of services, @terms_of_service_id Terms of service identifier
 
     terms_of_service_id = None  # type: "string"
 
 
 class answerCustomQuery(Method):
-    # Answers a custom query; for bots only @custom_query_id Identifier of
-    # a custom query @data JSON-serialized answer to the query
+    # Answers a custom query; for bots only, @custom_query_id Identifier of
+    # a custom query, @data JSON-serialized answer to the query
 
     custom_query_id = None  # type: "int64"
     data = None  # type: "string"
@@ -1109,7 +1109,7 @@ class answerCustomQuery(Method):
 
 class setAlarm(Method):
     # Succeeds after a specified amount of time has passed. Can
-    # be called before authorization. Can be called before initialization @seconds
+    # be called before authorization. Can be called before initialization, @seconds
     # Number of seconds before the function returns
 
     seconds = None  # type: "double"
@@ -1117,7 +1117,7 @@ class setAlarm(Method):
 
 class enableProxy(Method):
     # Enables a proxy. Only one proxy can be enabled at
-    # a time. Can be called before authorization @proxy_id Proxy identifier
+    # a time. Can be called before authorization, @proxy_id Proxy identifier
 
     proxy_id = None  # type: "int32"
 
@@ -1129,7 +1129,7 @@ class disableProxy(Method):
 
 
 class removeProxy(Method):
-    # Removes a proxy server. Can be called before authorization @proxy_id Proxy identifier
+    # Removes a proxy server. Can be called before authorization, @proxy_id Proxy identifier
 
     proxy_id = None  # type: "int32"
 

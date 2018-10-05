@@ -16,6 +16,6 @@ class basicGroup(Type):
 class getBasicGroup(Method):
     # Returns information about a basic group by its identifier. This
     # is an offline request if the current user is not
-    # a bot @basic_group_id Basic group identifier
+    # a bot, @basic_group_id Basic group identifier
 
     basic_group_id = None  # type: "int32"

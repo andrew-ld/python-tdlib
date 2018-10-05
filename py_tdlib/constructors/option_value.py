@@ -2,7 +2,7 @@ from ..factory import Method, Type
 
 
 class optionValueBoolean(Type):
-    # Boolean option @value The value of the option
+    # Boolean option, @value The value of the option
 
     value = None  # type: "Bool"
 
@@ -14,13 +14,13 @@ class optionValueEmpty(Type):
 
 
 class optionValueInteger(Type):
-    # An integer option @value The value of the option
+    # An integer option, @value The value of the option
 
     value = None  # type: "int32"
 
 
 class optionValueString(Type):
-    # A string option @value The value of the option
+    # A string option, @value The value of the option
 
     value = None  # type: "string"
 

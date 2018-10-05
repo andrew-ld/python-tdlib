@@ -3,7 +3,7 @@ from ..factory import Type
 
 class session(Type):
     # Contains information about one session in a Telegram application used
-    # by the current user @id Session identifier @is_current True, if
+    # by the current user, @id Session identifier, @is_current True, if
     # this session is the current session
 
     id = None  # type: "int64"

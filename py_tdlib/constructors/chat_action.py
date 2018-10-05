@@ -14,7 +14,7 @@ class chatActionRecordingVideo(Type):
 
 
 class chatActionUploadingVideo(Type):
-    # The user is uploading a video @progress Upload progress, as a percentage
+    # The user is uploading a video, @progress Upload progress, as a percentage
 
     progress = None  # type: "int32"
 
@@ -26,19 +26,19 @@ class chatActionRecordingVoiceNote(Type):
 
 
 class chatActionUploadingVoiceNote(Type):
-    # The user is uploading a voice note @progress Upload progress, as a percentage
+    # The user is uploading a voice note, @progress Upload progress, as a percentage
 
     progress = None  # type: "int32"
 
 
 class chatActionUploadingPhoto(Type):
-    # The user is uploading a photo @progress Upload progress, as a percentage
+    # The user is uploading a photo, @progress Upload progress, as a percentage
 
     progress = None  # type: "int32"
 
 
 class chatActionUploadingDocument(Type):
-    # The user is uploading a document @progress Upload progress, as a percentage
+    # The user is uploading a document, @progress Upload progress, as a percentage
 
     progress = None  # type: "int32"
 
@@ -68,7 +68,7 @@ class chatActionRecordingVideoNote(Type):
 
 
 class chatActionUploadingVideoNote(Type):
-    # The user is uploading a video note @progress Upload progress, as a percentage
+    # The user is uploading a video note, @progress Upload progress, as a percentage
 
     progress = None  # type: "int32"
 

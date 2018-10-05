@@ -2,7 +2,7 @@ from ..factory import Method, Type
 
 
 class proxies(Type):
-    # Represents a list of proxy servers @proxies List of proxy servers
+    # Represents a list of proxy servers, @proxies List of proxy servers
 
     proxies = None  # type: "vector<proxy>"
 

@@ -2,8 +2,8 @@ from ..factory import Type
 
 
 class messageForwardedFromUser(Type):
-    # The message was originally written by a known user @sender_user_id
-    # Identifier of the user that originally sent this message @date
+    # The message was originally written by a known user, @sender_user_id
+    # Identifier of the user that originally sent this message, @date
     # Point in time (Unix timestamp) when the message was originally sent
 
     sender_user_id = None  # type: "int32"
@@ -13,7 +13,7 @@ class messageForwardedFromUser(Type):
 
 
 class messageForwardedPost(Type):
-    # The message was originally a post in a channel @chat_id
+    # The message was originally a post in a channel, @chat_id
     # Identifier of the chat from which the message was forwarded
     # @author_signature Post author signature
 

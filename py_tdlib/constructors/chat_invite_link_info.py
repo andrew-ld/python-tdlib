@@ -15,7 +15,7 @@ class chatInviteLinkInfo(Type):
 
 class checkChatInviteLink(Method):
     # Checks the validity of an invite link for a chat
-    # and returns information about the corresponding chat @invite_link Invite link
+    # and returns information about the corresponding chat, @invite_link Invite link
     # to be checked; should begin with "https://t.me/joinchat/", "https://telegram.me/joinchat/", or "https://telegram.dog/joinchat/"
 
     invite_link = None  # type: "string"

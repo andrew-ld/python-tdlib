@@ -2,11 +2,11 @@ from ..factory import Method, Type
 
 
 class authenticationCodeInfo(Type):
-    # Information about the authentication code that was sent @phone_number A
-    # phone number that is being authenticated @type Describes the way
-    # the code was sent to the user @next_type Describes the
+    # Information about the authentication code that was sent, @phone_number A
+    # phone number that is being authenticated, @type Describes the way
+    # the code was sent to the user, @next_type Describes the
     # way the next code will be sent to the user;
-    # may be null @timeout Timeout before the code should be re-sent, in seconds
+    # may be null, @timeout Timeout before the code should be re-sent, in seconds
 
     phone_number = None  # type: "string"
     type = None  # type: "AuthenticationCodeType"
@@ -50,7 +50,7 @@ class resendPhoneNumberVerificationCode(Method):
 
 class sendPhoneNumberConfirmationCode(Method):
     # Sends phone number confirmation code. Should be called when user
-    # presses "https://t.me/confirmphone?phone=*******&hash=**********" or "tg://confirmphone?phone=*******&hash=**********" link @hash Value of the "hash"
+    # presses "https://t.me/confirmphone?phone=*******&hash=**********" or "tg://confirmphone?phone=*******&hash=**********" link, @hash Value of the "hash"
     # parameter from the link
 
     hash = None  # type: "string"

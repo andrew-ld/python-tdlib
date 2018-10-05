@@ -21,10 +21,10 @@ class authorizationStateWaitPhoneNumber(Type):
 
 
 class authorizationStateWaitCode(Type):
-    # TDLib needs the user's authentication code to finalize authorization @is_registered
-    # True, if the user is already registered @terms_of_service Telegram terms
+    # TDLib needs the user's authentication code to finalize authorization, @is_registered
+    # True, if the user is already registered, @terms_of_service Telegram terms
     # of service, which should be accepted before user can continue
-    # registration; may be null @code_info Information about the authorization code that was sent
+    # registration; may be null, @code_info Information about the authorization code that was sent
 
     is_registered = None  # type: "Bool"
     terms_of_service = None  # type: "termsOfService"
@@ -33,8 +33,8 @@ class authorizationStateWaitCode(Type):
 
 class authorizationStateWaitPassword(Type):
     # The user has been authorized, but needs to enter a
-    # password to start using the application @password_hint Hint for the
-    # password; can be empty @has_recovery_email_address True if a recovery email
+    # password to start using the application, @password_hint Hint for the
+    # password; can be empty, @has_recovery_email_address True if a recovery email
     # address has been set up
 
     password_hint = None  # type: "string"

@@ -3,7 +3,7 @@ from ..factory import Type
 
 class chatMemberStatusCreator(Type):
     # The user is the creator of a chat and has
-    # all the administrator privileges @is_member True, if the user is
+    # all the administrator privileges, @is_member True, if the user is
     # a member of the chat
 
     is_member = None  # type: "Bool"

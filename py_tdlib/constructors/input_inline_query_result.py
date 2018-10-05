@@ -2,8 +2,8 @@ from ..factory import Type
 
 
 class inputInlineQueryResultAnimatedGif(Type):
-    # Represents a link to an animated GIF @id Unique identifier
-    # of the query result @title Title of the query result
+    # Represents a link to an animated GIF, @id Unique identifier
+    # of the query result, @title Title of the query result
     # @thumbnail_url URL of the static result thumbnail (JPEG or GIF), if it exists
 
     id = None  # type: "string"
@@ -19,8 +19,8 @@ class inputInlineQueryResultAnimatedGif(Type):
 
 class inputInlineQueryResultAnimatedMpeg4(Type):
     # Represents a link to an animated (i.e. without sound) H.264/MPEG-4
-    # AVC video @id Unique identifier of the query result @title
-    # Title of the result @thumbnail_url URL of the static result
+    # AVC video, @id Unique identifier of the query result, @title
+    # Title of the result, @thumbnail_url URL of the static result
     # thumbnail (JPEG or GIF), if it exists
 
     id = None  # type: "string"
@@ -35,10 +35,10 @@ class inputInlineQueryResultAnimatedMpeg4(Type):
 
 
 class inputInlineQueryResultArticle(Type):
-    # Represents a link to an article or web page @id
-    # Unique identifier of the query result @url URL of the
-    # result, if it exists @hide_url True, if the URL must
-    # be not shown @title Title of the result
+    # Represents a link to an article or web page, @id
+    # Unique identifier of the query result, @url URL of the
+    # result, if it exists, @hide_url True, if the URL must
+    # be not shown, @title Title of the result
 
     id = None  # type: "string"
     url = None  # type: "string"
@@ -53,9 +53,9 @@ class inputInlineQueryResultArticle(Type):
 
 
 class inputInlineQueryResultAudio(Type):
-    # Represents a link to an MP3 audio file @id Unique
-    # identifier of the query result @title Title of the audio
-    # file @performer Performer of the audio file
+    # Represents a link to an MP3 audio file, @id Unique
+    # identifier of the query result, @title Title of the audio
+    # file, @performer Performer of the audio file
 
     id = None  # type: "string"
     title = None  # type: "string"
@@ -67,9 +67,9 @@ class inputInlineQueryResultAudio(Type):
 
 
 class inputInlineQueryResultContact(Type):
-    # Represents a user contact @id Unique identifier of the query
-    # result @contact User contact @thumbnail_url URL of the result thumbnail,
-    # if it exists @thumbnail_width Thumbnail width, if known @thumbnail_height Thumbnail height, if known
+    # Represents a user contact, @id Unique identifier of the query
+    # result, @contact User contact, @thumbnail_url URL of the result thumbnail,
+    # if it exists, @thumbnail_width Thumbnail width, if known, @thumbnail_height Thumbnail height, if known
 
     id = None  # type: "string"
     contact = None  # type: "contact"
@@ -81,10 +81,10 @@ class inputInlineQueryResultContact(Type):
 
 
 class inputInlineQueryResultDocument(Type):
-    # Represents a link to a file @id Unique identifier of
-    # the query result @title Title of the resulting file @param_description
-    # Short description of the result, if known @document_url URL of
-    # the file @mime_type MIME type of the file content; only
+    # Represents a link to a file, @id Unique identifier of
+    # the query result, @title Title of the resulting file, @param_description
+    # Short description of the result, if known, @document_url URL of
+    # the file, @mime_type MIME type of the file content; only
     # "application/pdf" and "application/zip" are currently allowed
 
     id = None  # type: "string"
@@ -100,8 +100,8 @@ class inputInlineQueryResultDocument(Type):
 
 
 class inputInlineQueryResultGame(Type):
-    # Represents a game @id Unique identifier of the query result
-    # @game_short_name Short name of the game @reply_markup Message reply markup.
+    # Represents a game, @id Unique identifier of the query result
+    # @game_short_name Short name of the game, @reply_markup Message reply markup.
     # Must be of type replyMarkupInlineKeyboard or null
 
     id = None  # type: "string"
@@ -110,12 +110,12 @@ class inputInlineQueryResultGame(Type):
 
 
 class inputInlineQueryResultLocation(Type):
-    # Represents a point on the map @id Unique identifier of
-    # the query result @location Location result @live_period Amount of time
+    # Represents a point on the map, @id Unique identifier of
+    # the query result, @location Location result, @live_period Amount of time
     # relative to the message sent time until the location can
-    # be updated, in seconds @title Title of the result @thumbnail_url
-    # URL of the result thumbnail, if it exists @thumbnail_width Thumbnail
-    # width, if known @thumbnail_height Thumbnail height, if known
+    # be updated, in seconds, @title Title of the result, @thumbnail_url
+    # URL of the result thumbnail, if it exists, @thumbnail_width Thumbnail
+    # width, if known, @thumbnail_height Thumbnail height, if known
 
     id = None  # type: "string"
     location = None  # type: "location"
@@ -129,9 +129,9 @@ class inputInlineQueryResultLocation(Type):
 
 
 class inputInlineQueryResultPhoto(Type):
-    # Represents link to a JPEG image @id Unique identifier of
-    # the query result @title Title of the result, if known
-    # @param_description A short description of the result, if known @thumbnail_url
+    # Represents link to a JPEG image, @id Unique identifier of
+    # the query result, @title Title of the result, if known
+    # @param_description A short description of the result, if known, @thumbnail_url
     # URL of the photo thumbnail, if it exists
 
     id = None  # type: "string"
@@ -146,8 +146,8 @@ class inputInlineQueryResultPhoto(Type):
 
 
 class inputInlineQueryResultSticker(Type):
-    # Represents a link to a WEBP sticker @id Unique identifier
-    # of the query result @thumbnail_url URL of the sticker thumbnail, if it exists
+    # Represents a link to a WEBP sticker, @id Unique identifier
+    # of the query result, @thumbnail_url URL of the sticker thumbnail, if it exists
 
     id = None  # type: "string"
     thumbnail_url = None  # type: "string"
@@ -159,9 +159,9 @@ class inputInlineQueryResultSticker(Type):
 
 
 class inputInlineQueryResultVenue(Type):
-    # Represents information about a venue @id Unique identifier of the
-    # query result @venue Venue result @thumbnail_url URL of the result
-    # thumbnail, if it exists @thumbnail_width Thumbnail width, if known @thumbnail_height
+    # Represents information about a venue, @id Unique identifier of the
+    # query result, @venue Venue result, @thumbnail_url URL of the result
+    # thumbnail, if it exists, @thumbnail_width Thumbnail width, if known, @thumbnail_height
     # Thumbnail height, if known
 
     id = None  # type: "string"
@@ -175,8 +175,8 @@ class inputInlineQueryResultVenue(Type):
 
 class inputInlineQueryResultVideo(Type):
     # Represents a link to a page containing an embedded video
-    # player or a video file @id Unique identifier of the
-    # query result @title Title of the result @param_description A short
+    # player or a video file, @id Unique identifier of the
+    # query result, @title Title of the result, @param_description A short
     # description of the result, if known
 
     id = None  # type: "string"
@@ -194,8 +194,8 @@ class inputInlineQueryResultVideo(Type):
 
 class inputInlineQueryResultVoiceNote(Type):
     # Represents a link to an opus-encoded audio file within an
-    # OGG container, single channel audio @id Unique identifier of the
-    # query result @title Title of the voice note
+    # OGG container, single channel audio, @id Unique identifier of the
+    # query result, @title Title of the voice note
 
     id = None  # type: "string"
     title = None  # type: "string"

@@ -3,9 +3,9 @@ from ..factory import Method, Type
 
 class userFullInfo(Type):
     # Contains full information about a user (except the full list
-    # of profile photos) @is_blocked True, if the user is blacklisted
-    # by the current user @can_be_called True, if the user can
-    # be called @has_private_calls True, if the user can't be called
+    # of profile photos), @is_blocked True, if the user is blacklisted
+    # by the current user, @can_be_called True, if the user can
+    # be called, @has_private_calls True, if the user can't be called
     # due to their privacy settings
 
     is_blocked = None  # type: "Bool"
@@ -18,6 +18,6 @@ class userFullInfo(Type):
 
 
 class getUserFullInfo(Method):
-    # Returns full information about a user by their identifier @user_id User identifier
+    # Returns full information about a user by their identifier, @user_id User identifier
 
     user_id = None  # type: "int32"

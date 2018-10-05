@@ -28,7 +28,7 @@ class chat(Type):
 class getChat(Method):
     # Returns information about a chat by its identifier, this is
     # an offline request if the current user is not a
-    # bot @chat_id Chat identifier
+    # bot, @chat_id Chat identifier
 
     chat_id = None  # type: "int53"
 
@@ -36,14 +36,14 @@ class getChat(Method):
 class searchPublicChat(Method):
     # Searches a public chat by its username. Currently only private
     # chats, supergroups and channels can be public. Returns the chat
-    # if found; otherwise an error is returned @username Username to be resolved
+    # if found; otherwise an error is returned, @username Username to be resolved
 
     username = None  # type: "string"
 
 
 class createPrivateChat(Method):
-    # Returns an existing chat corresponding to a given user @user_id
-    # User identifier @force If true, the chat will be created
+    # Returns an existing chat corresponding to a given user, @user_id
+    # User identifier, @force If true, the chat will be created
     # without network request. In this case all information about the
     # chat except its type, title and photo can be incorrect
 
@@ -53,7 +53,7 @@ class createPrivateChat(Method):
 
 class createBasicGroupChat(Method):
     # Returns an existing chat corresponding to a known basic group
-    # @basic_group_id Basic group identifier @force If true, the chat will
+    # @basic_group_id Basic group identifier, @force If true, the chat will
     # be created without network request. In this case all information
     # about the chat except its type, title and photo can be incorrect
 
@@ -63,7 +63,7 @@ class createBasicGroupChat(Method):
 
 class createSupergroupChat(Method):
     # Returns an existing chat corresponding to a known supergroup or
-    # channel @supergroup_id Supergroup or channel identifier @force If true, the
+    # channel, @supergroup_id Supergroup or channel identifier, @force If true, the
     # chat will be created without network request. In this case
     # all information about the chat except its type, title and
     # photo can be incorrect
@@ -81,8 +81,8 @@ class createSecretChat(Method):
 
 class createNewBasicGroupChat(Method):
     # Creates a new basic group and sends a corresponding messageBasicGroupChatCreate.
-    # Returns the newly created chat @user_ids Identifiers of users to
-    # be added to the basic group @title Title of the
+    # Returns the newly created chat, @user_ids Identifiers of users to
+    # be added to the basic group, @title Title of the
     # new basic group; 1-255 characters
 
     user_ids = None  # type: "vector<int32>"
@@ -91,9 +91,9 @@ class createNewBasicGroupChat(Method):
 
 class createNewSupergroupChat(Method):
     # Creates a new supergroup or channel and sends a corresponding
-    # messageSupergroupChatCreate. Returns the newly created chat @title Title of the
-    # new chat; 1-255 characters @is_channel True, if a channel chat
-    # should be created @param_description Chat description; 0-255 characters
+    # messageSupergroupChatCreate. Returns the newly created chat, @title Title of the
+    # new chat; 1-255 characters, @is_channel True, if a channel chat
+    # should be created, @param_description Chat description; 0-255 characters
 
     title = None  # type: "string"
     is_channel = None  # type: "Bool"
@@ -110,7 +110,7 @@ class createNewSecretChat(Method):
 class upgradeBasicGroupChatToSupergroupChat(Method):
     # Creates a new supergroup from an existing basic group and
     # sends a corresponding messageChatUpgradeTo and messageChatUpgradeFrom. Deactivates the original basic
-    # group @chat_id Identifier of the chat to upgrade
+    # group, @chat_id Identifier of the chat to upgrade
 
     chat_id = None  # type: "int53"
 

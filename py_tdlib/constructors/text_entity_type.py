@@ -65,14 +65,14 @@ class textEntityTypePre(Type):
 
 class textEntityTypePreCode(Type):
     # Text that must be formatted as if inside pre, and
-    # code HTML tags @language Programming language of the code; as
+    # code HTML tags, @language Programming language of the code; as
     # defined by the sender
 
     language = None  # type: "string"
 
 
 class textEntityTypeTextUrl(Type):
-    # A text description shown instead of a raw URL @url
+    # A text description shown instead of a raw URL, @url
     # HTTP or tg:// URL to be opened when the link is clicked
 
     url = None  # type: "string"
@@ -80,7 +80,7 @@ class textEntityTypeTextUrl(Type):
 
 class textEntityTypeMentionName(Type):
     # A text shows instead of a raw mention of the
-    # user (e.g., when the user has no username) @user_id Identifier
+    # user (e.g., when the user has no username), @user_id Identifier
     # of the mentioned user
 
     user_id = None  # type: "int32"

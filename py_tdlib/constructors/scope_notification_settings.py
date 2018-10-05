@@ -2,7 +2,7 @@ from ..factory import Method, Type
 
 
 class scopeNotificationSettings(Type):
-    # Contains information about notification settings for several chats @mute_for Time
+    # Contains information about notification settings for several chats, @mute_for Time
     # left before notifications will be unmuted, in seconds
 
     mute_for = None  # type: "int32"

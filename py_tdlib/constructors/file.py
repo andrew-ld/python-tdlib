@@ -22,7 +22,7 @@ class getRemoteFile(Method):
     # Returns information about a file by its remote ID; this
     # is an offline request. Can be used to register a
     # URL as a file for further uploading, or sending as
-    # a message @remote_file_id Remote identifier of the file to get
+    # a message, @remote_file_id Remote identifier of the file to get
     # @file_type File type, if known
 
     remote_file_id = None  # type: "string"
@@ -43,7 +43,7 @@ class uploadFile(Method):
     # in a message. updateFile will be used to notify about
     # upload progress and successful completion of the upload. The file
     # will not have a persistent remote identifier until it will
-    # be sent in a message @file File to upload @file_type File type
+    # be sent in a message, @file File to upload, @file_type File type
 
     file = None  # type: "InputFile"
     file_type = None  # type: "FileType"
@@ -52,7 +52,7 @@ class uploadFile(Method):
 
 class uploadStickerFile(Method):
     # Uploads a PNG image with a sticker; for bots only;
-    # returns the uploaded file @user_id Sticker file owner @png_sticker PNG
+    # returns the uploaded file, @user_id Sticker file owner, @png_sticker PNG
     # image with the sticker; must be up to 512 kB
     # in size and fit in 512x512 square
 
@@ -63,10 +63,10 @@ class uploadStickerFile(Method):
 class getMapThumbnailFile(Method):
     # Returns information about a file with a map thumbnail in
     # PNG format. Only map thumbnail files with size less than
-    # 1MB can be downloaded @location Location of the map center
-    # @zoom Map zoom level; 13-20 @width Map width in pixels
-    # before applying scale; 16-1024 @height Map height in pixels before
-    # applying scale; 16-1024 @scale Map scale; 1-3 @chat_id Identifier of
+    # 1MB can be downloaded, @location Location of the map center
+    # @zoom Map zoom level; 13-20, @width Map width in pixels
+    # before applying scale; 16-1024, @height Map height in pixels before
+    # applying scale; 16-1024, @scale Map scale; 1-3, @chat_id Identifier of
     # a chat, in which the thumbnail will be shown. Use 0 if unknown
 
     location = None  # type: "location"

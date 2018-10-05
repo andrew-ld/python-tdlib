@@ -2,9 +2,9 @@ from ..factory import Type
 
 
 class invoice(Type):
-    # Product invoice @currency ISO 4217 currency code @price_parts A list
+    # Product invoice, @currency ISO 4217 currency code, @price_parts A list
     # of objects used to calculate the total price of the
-    # product @is_test True, if the payment is a test payment
+    # product, @is_test True, if the payment is a test payment
 
     currency = None  # type: "string"
     price_parts = None  # type: "vector<labeledPricePart>"

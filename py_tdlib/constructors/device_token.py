@@ -2,15 +2,15 @@ from ..factory import Type
 
 
 class deviceTokenGoogleCloudMessaging(Type):
-    # A token for Google Cloud Messaging @token Device registration token;
+    # A token for Google Cloud Messaging, @token Device registration token;
     # may be empty to de-register a device
 
     token = None  # type: "string"
 
 
 class deviceTokenApplePush(Type):
-    # A token for Apple Push Notification service @device_token Device token;
-    # may be empty to de-register a device @is_app_sandbox True, if
+    # A token for Apple Push Notification service, @device_token Device token;
+    # may be empty to de-register a device, @is_app_sandbox True, if
     # App Sandbox is enabled
 
     device_token = None  # type: "string"
@@ -18,8 +18,8 @@ class deviceTokenApplePush(Type):
 
 
 class deviceTokenApplePushVoIP(Type):
-    # A token for Apple Push Notification service VoIP notifications @device_token
-    # Device token; may be empty to de-register a device @is_app_sandbox
+    # A token for Apple Push Notification service VoIP notifications, @device_token
+    # Device token; may be empty to de-register a device, @is_app_sandbox
     # True, if App Sandbox is enabled
 
     device_token = None  # type: "string"
@@ -27,7 +27,7 @@ class deviceTokenApplePushVoIP(Type):
 
 
 class deviceTokenWindowsPush(Type):
-    # A token for Windows Push Notification Services @access_token The access
+    # A token for Windows Push Notification Services, @access_token The access
     # token that will be used to send notifications; may be
     # empty to de-register a device
 
@@ -35,21 +35,21 @@ class deviceTokenWindowsPush(Type):
 
 
 class deviceTokenMicrosoftPush(Type):
-    # A token for Microsoft Push Notification Service @channel_uri Push notification
+    # A token for Microsoft Push Notification Service, @channel_uri Push notification
     # channel URI; may be empty to de-register a device
 
     channel_uri = None  # type: "string"
 
 
 class deviceTokenMicrosoftPushVoIP(Type):
-    # A token for Microsoft Push Notification Service VoIP channel @channel_uri
+    # A token for Microsoft Push Notification Service VoIP channel, @channel_uri
     # Push notification channel URI; may be empty to de-register a device
 
     channel_uri = None  # type: "string"
 
 
 class deviceTokenWebPush(Type):
-    # A token for web Push API @endpoint Absolute URL exposed
+    # A token for web Push API, @endpoint Absolute URL exposed
     # by the push service where the application server can send
     # push messages; may be empty to de-register a device
 
@@ -59,7 +59,7 @@ class deviceTokenWebPush(Type):
 
 
 class deviceTokenSimplePush(Type):
-    # A token for Simple Push API for Firefox OS @endpoint
+    # A token for Simple Push API for Firefox OS, @endpoint
     # Absolute URL exposed by the push service where the application
     # server can send push messages; may be empty to de-register a device
 
@@ -67,21 +67,21 @@ class deviceTokenSimplePush(Type):
 
 
 class deviceTokenUbuntuPush(Type):
-    # A token for Ubuntu Push Client service @token Token; may
+    # A token for Ubuntu Push Client service, @token Token; may
     # be empty to de-register a device
 
     token = None  # type: "string"
 
 
 class deviceTokenBlackBerryPush(Type):
-    # A token for BlackBerry Push Service @token Token; may be
+    # A token for BlackBerry Push Service, @token Token; may be
     # empty to de-register a device
 
     token = None  # type: "string"
 
 
 class deviceTokenTizenPush(Type):
-    # A token for Tizen Push Service @reg_id Push service registration
+    # A token for Tizen Push Service, @reg_id Push service registration
     # identifier; may be empty to de-register a device
 
     reg_id = None  # type: "string"

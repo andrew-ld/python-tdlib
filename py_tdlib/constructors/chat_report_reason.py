@@ -26,6 +26,6 @@ class chatReportReasonCopyright(Type):
 
 
 class chatReportReasonCustom(Type):
-    # A custom reason provided by the user @text Report text
+    # A custom reason provided by the user, @text Report text
 
     text = None  # type: "string"

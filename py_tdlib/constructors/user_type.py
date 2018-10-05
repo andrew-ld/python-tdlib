@@ -16,7 +16,7 @@ class userTypeDeleted(Type):
 
 
 class userTypeBot(Type):
-    # A bot (see https://core.telegram.org/bots) @can_join_groups True, if the bot can
+    # A bot (see https://core.telegram.org/bots), @can_join_groups True, if the bot can
     # be invited to basic group and supergroup chats
 
     can_join_groups = None  # type: "Bool"

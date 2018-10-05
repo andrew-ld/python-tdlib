@@ -25,6 +25,6 @@ class supergroup(Type):
 class getSupergroup(Method):
     # Returns information about a supergroup or channel by its identifier.
     # This is an offline request if the current user is
-    # not a bot @supergroup_id Supergroup or channel identifier
+    # not a bot, @supergroup_id Supergroup or channel identifier
 
     supergroup_id = None  # type: "int32"

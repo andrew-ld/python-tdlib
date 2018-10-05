@@ -2,7 +2,7 @@ from ..factory import Method, Type
 
 
 class sessions(Type):
-    # Contains a list of sessions @sessions List of sessions
+    # Contains a list of sessions, @sessions List of sessions
 
     sessions = None  # type: "vector<session>"
 

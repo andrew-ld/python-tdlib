@@ -8,14 +8,14 @@ class userStatusEmpty(Type):
 
 
 class userStatusOnline(Type):
-    # The user is online @expires Point in time (Unix timestamp)
+    # The user is online, @expires Point in time (Unix timestamp)
     # when the user's online status will expire
 
     expires = None  # type: "int32"
 
 
 class userStatusOffline(Type):
-    # The user is offline @was_online Point in time (Unix timestamp)
+    # The user is offline, @was_online Point in time (Unix timestamp)
     # when the user was last online
 
     was_online = None  # type: "int32"

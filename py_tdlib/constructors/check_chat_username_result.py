@@ -36,7 +36,7 @@ class checkChatUsername(Method):
     # Checks whether a username can be set for a chat
     # @chat_id Chat identifier; should be identifier of a supergroup chat,
     # or a channel chat, or a private chat with self,
-    # or zero if chat is being created @username Username to be checked
+    # or zero if chat is being created, @username Username to be checked
 
     chat_id = None  # type: "int64"
     username = None  # type: "string"

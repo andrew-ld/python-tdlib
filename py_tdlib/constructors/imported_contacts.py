@@ -2,7 +2,7 @@ from ..factory import Method, Type
 
 
 class importedContacts(Type):
-    # Represents the result of an ImportContacts request @user_ids User identifiers
+    # Represents the result of an ImportContacts request, @user_ids User identifiers
     # of the imported contacts in the same order as they
     # were specified in the request; 0 if the contact is
     # not yet a registered user
@@ -13,7 +13,7 @@ class importedContacts(Type):
 
 class importContacts(Method):
     # Adds new contacts or edits existing contacts; contacts' user identifiers
-    # are ignored @contacts The list of contacts to import or
+    # are ignored, @contacts The list of contacts to import or
     # edit, contact's vCard are ignored and are not imported
 
     contacts = None  # type: "vector<contact>"

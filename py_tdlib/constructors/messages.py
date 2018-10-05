@@ -2,8 +2,8 @@ from ..factory import Method, Type
 
 
 class messages(Type):
-    # Contains a list of messages @total_count Approximate total count of
-    # messages found @messages List of messages; messages may be null
+    # Contains a list of messages, @total_count Approximate total count of
+    # messages found, @messages List of messages; messages may be null
 
     total_count = None  # type: "int32"
     messages = None  # type: "vector<message>"
@@ -11,8 +11,8 @@ class messages(Type):
 
 class getMessages(Method):
     # Returns information about messages. If a message is not found,
-    # returns null on the corresponding position of the result @chat_id
-    # Identifier of the chat the messages belong to @message_ids Identifiers
+    # returns null on the corresponding position of the result, @chat_id
+    # Identifier of the chat the messages belong to, @message_ids Identifiers
     # of the messages to get
 
     chat_id = None  # type: "int53"
@@ -69,7 +69,7 @@ class searchCallMessages(Method):
 class searchChatRecentLocationMessages(Method):
     # Returns information about the recent locations of chat members that
     # were sent to the chat. Returns up to 1 location
-    # message per user @chat_id Chat identifier @limit Maximum number of
+    # message per user, @chat_id Chat identifier, @limit Maximum number of
     # messages to be returned
 
     chat_id = None  # type: "int53"
@@ -87,7 +87,7 @@ class getActiveLiveLocationMessages(Method):
 class sendMessageAlbum(Method):
     # Sends messages grouped together into an album. Currently only photo
     # and video messages can be grouped into an album. Returns
-    # sent messages @chat_id Target chat @reply_to_message_id Identifier of a message
+    # sent messages, @chat_id Target chat, @reply_to_message_id Identifier of a message
     # to reply to or 0
 
     chat_id = None  # type: "int53"

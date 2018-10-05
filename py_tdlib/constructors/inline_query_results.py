@@ -3,9 +3,9 @@ from ..factory import Method, Type
 
 class inlineQueryResults(Type):
     # Represents the results of the inline query. Use sendInlineQueryResultMessage to
-    # send the result of the query @inline_query_id Unique identifier of
-    # the inline query @next_offset The offset for the next request.
-    # If empty, there are no more results @results Results of the query
+    # send the result of the query, @inline_query_id Unique identifier of
+    # the inline query, @next_offset The offset for the next request.
+    # If empty, there are no more results, @results Results of the query
 
     inline_query_id = None  # type: "int64"
     next_offset = None  # type: "string"

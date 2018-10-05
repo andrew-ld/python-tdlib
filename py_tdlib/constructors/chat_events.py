@@ -2,7 +2,7 @@ from ..factory import Method, Type
 
 
 class chatEvents(Type):
-    # Contains a list of chat events @events List of events
+    # Contains a list of chat events, @events List of events
 
     events = None  # type: "vector<chatEvent>"
 

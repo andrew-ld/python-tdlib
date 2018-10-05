@@ -2,9 +2,9 @@ from ..factory import Method, Type
 
 
 class basicGroupFullInfo(Type):
-    # Contains full information about a basic group @creator_user_id User identifier
-    # of the creator of the group; 0 if unknown @members
-    # Group members @invite_link Invite link for this group; available only
+    # Contains full information about a basic group, @creator_user_id User identifier
+    # of the creator of the group; 0 if unknown, @members
+    # Group members, @invite_link Invite link for this group; available only
     # for the group creator and only after it has been
     # generated at least once
 

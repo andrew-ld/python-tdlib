@@ -2,7 +2,7 @@ from ..factory import Type
 
 
 class profilePhoto(Type):
-    # Describes a user profile photo @id Photo identifier; 0 for
+    # Describes a user profile photo, @id Photo identifier; 0 for
     # an empty photo. Can be used to find a photo
     # in a list of userProfilePhotos
 

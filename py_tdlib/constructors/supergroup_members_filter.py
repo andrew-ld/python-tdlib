@@ -15,7 +15,7 @@ class supergroupMembersFilterAdministrators(Type):
 
 class supergroupMembersFilterSearch(Type):
     # Used to search for supergroup or channel members via a
-    # (string) query @query Query to search for
+    # (string) query, @query Query to search for
 
     query = None  # type: "string"
 
@@ -29,7 +29,7 @@ class supergroupMembersFilterRestricted(Type):
 
 class supergroupMembersFilterBanned(Type):
     # Returns users banned from the supergroup or channel; can be
-    # used only by administrators @query Query to search for
+    # used only by administrators, @query Query to search for
 
     query = None  # type: "string"
 

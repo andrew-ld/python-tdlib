@@ -4,15 +4,15 @@ from ..factory import Type
 class inputCredentialsSaved(Type):
     # Applies if a user chooses some previously saved payment credentials.
     # To use their previously saved credentials, the user must have
-    # a valid temporary password @saved_credentials_id Identifier of the saved credentials
+    # a valid temporary password, @saved_credentials_id Identifier of the saved credentials
 
     saved_credentials_id = None  # type: "string"
 
 
 class inputCredentialsNew(Type):
     # Applies if a user enters new credentials on a payment
-    # provider website @data Contains JSON-encoded data with a credential identifier
-    # from the payment provider @allow_save True, if the credential identifier
+    # provider website, @data Contains JSON-encoded data with a credential identifier
+    # from the payment provider, @allow_save True, if the credential identifier
     # can be saved on the server side
 
     data = None  # type: "string"

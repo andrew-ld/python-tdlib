@@ -15,6 +15,6 @@ class secretChat(Type):
 
 class getSecretChat(Method):
     # Returns information about a secret chat by its identifier. This
-    # is an offline request @secret_chat_id Secret chat identifier
+    # is an offline request, @secret_chat_id Secret chat identifier
 
     secret_chat_id = None  # type: "int32"

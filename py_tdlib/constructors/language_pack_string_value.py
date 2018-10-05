@@ -2,15 +2,15 @@ from ..factory import Method, Type
 
 
 class languagePackStringValueOrdinary(Type):
-    # An ordinary language pack string @value String value
+    # An ordinary language pack string, @value String value
 
     value = None  # type: "string"
 
 
 class languagePackStringValuePluralized(Type):
     # A language pack string which has different forms based on
-    # the number of some object it mentions @zero_value Value for
-    # zero objects @one_value Value for one object @two_value Value for two objects
+    # the number of some object it mentions, @zero_value Value for
+    # zero objects, @one_value Value for one object, @two_value Value for two objects
 
     zero_value = None  # type: "string"
     one_value = None  # type: "string"
