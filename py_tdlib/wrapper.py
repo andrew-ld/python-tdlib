@@ -93,7 +93,7 @@ class Client(TdJsonClient):
         self.__offset += 1
         return self.__offset
 
-    def set_verbosity(self, level):
+    def set_verbosity(self, level: int):
         self.td_set_log_verbosity_level(level)
 
     def get_updates(self):
