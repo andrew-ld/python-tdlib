@@ -5,6 +5,7 @@ from threading import Event, Thread
 from ctypes import CDLL, c_char_p, c_void_p, c_double, c_int
 from .constructors import close, error
 from .exception import RpcError, RpcTimeout
+from signal import signal, SIGINT
 
 
 class TdJsonClient:
@@ -75,7 +76,7 @@ class Client(TdJsonClient):
 
     def __init__(self, *args, **kwargs):
         super(Client, self).__init__(*args, **kwargs)
-        self.td_set_log_verbosity_level(2)
+        self.set_verbosity(0)
 
         self.__waiters = {}
         self.__session = self.td_json_client_create()
@@ -83,12 +84,17 @@ class Client(TdJsonClient):
         worker = UpdateWorker(self, self.__waiters)
         self.__updates = worker.get_update_queue()
 
+        signal(SIGINT, self.stop)
+
     def __del__(self):
         self.stop()
 
     def __get_offset(self) -> int:
         self.__offset += 1
         return self.__offset
+
+    def set_verbosity(self, level):
+        self.td_set_log_verbosity_level(level)
 
     def get_updates(self):
         while self.__running:
@@ -137,8 +143,7 @@ class UpdateWorker:
         self.__waiters = waiters
         self.__updates = Queue()
 
-        Thread(target = self.__worker, daemon = True)\
-            .start()
+        Thread(target = self.__worker).start()
 
     def get_update_queue(self) -> Queue:
         return self.__updates

@@ -1,11 +1,11 @@
 from simplejson import dumps
-from .table import constructors
+from .table import constructors as cs
 
 
 def factorize(update):
     if isinstance(update, dict):
         c = update.get("@type")
-        c = constructors.get(c)
+        c = cs.get(c, cs["error"])
         return c(**update)
 
     if isinstance(update, list):
