@@ -14,21 +14,22 @@ def factorize(update):
     return update
 
 
+def list_passer(obj):
+    result = []
+    for x in obj:
+        if isinstance(x, list):
+            result.append(list_passer(x))
+
+        elif hasattr(x, "to_dict"):
+            result.append(x.to_dict())
+
+        else:
+            result.append(x)
+
+    return result
+
+
 class Obj:
-    def __list_passer(self, obj):
-        result = []
-        for x in obj:
-            if isinstance(x, list):
-                result.append(self.__list_passer(x))
-
-            elif hasattr(x, "to_dict"):
-                result.append(x.to_dict())
-
-            else:
-                result.append(x)
-
-        return result
-
     def to_dict(self):
         result = {"@type": type(self).__name__}
 
@@ -39,7 +40,7 @@ class Obj:
                 result[x] = attr.to_dict()
 
             elif isinstance(attr, list):
-                result[x] = self.__list_passer(attr)
+                result[x] = list_passer(attr)
 
             else:
                 result[x] = attr
