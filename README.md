@@ -3,7 +3,8 @@
 > full oop python 3 tdlib wrapper, fast, thread safe
 
 # install
-    python setup.py install
+    python3 -m pip install simplejson werkzeug
+    python3 setup.py install
 
 # example
     from ctypes import CDLL
