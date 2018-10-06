@@ -29,3 +29,20 @@
     # get updates
     for update in client.get_updates():
         print(update)
+
+# sending a message
+    from py_tdlib.constructors import (
+        sendMessage, formattedText
+        inputMessageText
+    )
+    
+    result = client.send(
+        sendMessage(
+            chat_id = <chat_id>,
+            input_message_content = inputMessageText(
+                text = formattedText(
+                    text = "<TEXT>"
+                )
+            )
+        )
+    )
