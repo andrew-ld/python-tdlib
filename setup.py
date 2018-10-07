@@ -8,6 +8,6 @@ setup(
     author = "andrew-ld",
     license = "MIT",
     url = "https://github.com/andrew-ld/python-tdlib",
-    packages=["py_tdlib", "py_tdlib.constructors", "py_tdlib.factory"],
+    packages = ["py_tdlib", "py_tdlib.constructors", "py_tdlib.factory"],
     install_requires = ["werkzeug", "simplejson"],
 )
