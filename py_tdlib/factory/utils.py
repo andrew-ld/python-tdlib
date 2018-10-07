@@ -5,8 +5,7 @@ from .table import constructors as cs
 def factorize(update):
     if isinstance(update, dict):
         c = update.get("@type")
-        c = cs.get(c, cs["error"])
-        return c(**update)
+        return cs[c](**update)
 
     if isinstance(update, list):
         return [*map(factorize, update)]
