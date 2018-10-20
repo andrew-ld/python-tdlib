@@ -8,7 +8,8 @@ from .constructors import (
     checkAuthenticationBotToken, authorizationStateReady,
     authorizationStateWaitTdlibParameters, setAuthenticationPhoneNumber,
     authorizationStateWaitCode, checkAuthenticationCode,
-    authorizationStateWaitPassword, checkAuthenticationPassword
+    authorizationStateWaitPassword, checkAuthenticationPassword,
+    updateConnectionState, connectionStateReady
 )
 
 
@@ -47,6 +48,9 @@ class TokenAuth(BasicInit):
             if isinstance(update, updateAuthorizationState):
                 update = update.authorization_state
 
+            if isinstance(update, updateConnectionState):
+                update = update.state
+
             if isinstance(update, authorizationStateWaitEncryptionKey):
                 checkDatabaseEncryptionKey()\
                     .run(self.client)
@@ -55,7 +59,7 @@ class TokenAuth(BasicInit):
                 checkAuthenticationBotToken(token = token)\
                     .run(self.client)
 
-            elif isinstance(update, authorizationStateReady):
+            elif isinstance(update, connectionStateReady):
                 break
 
 
@@ -64,6 +68,9 @@ class PhoneAuth(BasicInit):
         for update in self.client.get_updates():
             if isinstance(update, updateAuthorizationState):
                 update = update.authorization_state
+
+            if isinstance(update, updateConnectionState):
+                update = update.state
 
             if isinstance(update, authorizationStateWaitEncryptionKey):
                 checkDatabaseEncryptionKey()\
@@ -93,5 +100,5 @@ class PhoneAuth(BasicInit):
                 req.password = input("2step password: ")
                 req.run(self.client)
 
-            elif isinstance(update, authorizationStateReady):
+            elif isinstance(update, connectionStateReady):
                 break
