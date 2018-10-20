@@ -1,5 +1,5 @@
 from queue import Queue
-from . import factorize, Signal
+from .factory import factorize
 from simplejson import loads, dumps
 from threading import Event, Thread
 from .constructors import close, error
@@ -60,7 +60,6 @@ class Client(TdJsonClient):
 
         self.__waiters = {}
         self.__session = self.td_create()
-        Signal.add(self)
 
         worker = UpdateWorker(self, self.__waiters)
         self.__updates = worker.get_update_queue()
