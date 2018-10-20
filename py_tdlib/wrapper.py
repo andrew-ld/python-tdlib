@@ -1,55 +1,37 @@
-from . import factorize
 from queue import Queue
+from . import factorize, Signal
 from simplejson import loads, dumps
 from threading import Event, Thread
-from ctypes import CDLL, c_char_p, c_void_p, c_double, c_int
 from .constructors import close, error
 from .exception import RpcError, RpcTimeout
+from ctypes import CDLL, c_char_p, c_void_p, c_double, c_int
 
 
 class TdJsonClient:
     def __init__(self, td_json: CDLL):
-        self.td_json_client_create = td_json.td_json_client_create
-        self.td_json_client_create.restype = c_void_p
-        self.td_json_client_create.argtypes = []
+        self.td_create = td_json.td_json_client_create
+        self.td_create.restype = c_void_p
+        self.td_create.argtypes = []
 
-        self.td_json_client_receive = td_json.td_json_client_receive
-        self.td_json_client_receive.restype = c_char_p
-        self.td_json_client_receive.argtypes = [c_void_p, c_double]
+        self.td_receive = td_json.td_json_client_receive
+        self.td_receive.restype = c_char_p
+        self.td_receive.argtypes = [c_void_p, c_double]
 
-        self.td_json_client_send = td_json.td_json_client_send
-        self.td_json_client_send.restype = None
-        self.td_json_client_send.argtypes = [c_void_p, c_char_p]
+        self.td_send = td_json.td_json_client_send
+        self.td_send.restype = None
+        self.td_send.argtypes = [c_void_p, c_char_p]
 
-        self.td_json_client_destroy = td_json.td_json_client_destroy
-        self.td_json_client_destroy.restype = None
-        self.td_json_client_destroy.argtypes = [c_void_p]
+        self.td_destroy = td_json.td_json_client_destroy
+        self.td_destroy.restype = None
+        self.td_destroy.argtypes = [c_void_p]
 
-        self.td_set_log_verbosity_level = td_json.td_set_log_verbosity_level
-        self.td_set_log_verbosity_level.restype = None
-        self.td_set_log_verbosity_level.argtypes = [c_int]
+        self.td_verbosity = td_json.td_set_log_verbosity_level
+        self.td_verbosity.restype = None
+        self.td_verbosity.argtypes = [c_int]
 
-        self.td_json_client_execute = td_json.td_json_client_execute
-        self.td_json_client_execute.restype = c_char_p
-        self.td_json_client_execute.argtypes = [c_void_p, c_char_p]
-
-    def td_json_client_create(self) -> int:
-        pass
-
-    def td_json_client_receive(self, client: int, timeout: int) -> bytes:
-        pass
-
-    def td_json_client_destroy(self, client: int) -> None:
-        pass
-
-    def td_set_log_verbosity_level(self, level: int) -> None:
-        pass
-
-    def td_json_client_send(self, client: int, req: bytes) -> bytes:
-        pass
-
-    def td_json_execute(self, client: int, req: bytes) -> bytes:
-        pass
+        self.td_execute = td_json.td_json_client_execute
+        self.td_execute.restype = c_char_p
+        self.td_execute.argtypes = [c_void_p, c_char_p]
 
 
 class WaitAnswer:
@@ -59,7 +41,7 @@ class WaitAnswer:
         self.__event = Event()
 
     def wait(self):
-        self.__event.wait(2)
+        self.__event.wait(3)
 
     def set_answer(self, update):
         self.__answer = update
@@ -77,12 +59,12 @@ class Client(TdJsonClient):
         super().__init__(*args)
 
         self.__waiters = {}
-        self.__session = self.td_json_client_create()
-        globals()["__tdlib_s"].append(self)
+        self.__session = self.td_create()
+        Signal.add(self)
 
         worker = UpdateWorker(self, self.__waiters)
         self.__updates = worker.get_update_queue()
-        self.set_verbosity(0)
+        self.set_verbosity(2)
 
     def __del__(self):
         self.stop()
@@ -92,7 +74,7 @@ class Client(TdJsonClient):
         return self.__offset
 
     def set_verbosity(self, level: int):
-        self.td_set_log_verbosity_level(level)
+        self.td_verbosity(level)
 
     def get_updates(self):
         while self.__running:
@@ -108,9 +90,8 @@ class Client(TdJsonClient):
 
     def receive(self):
         while self.__running:
-            update = self.td_json_client_receive(self.__session, -1)
-            update = loads(update)
-            yield update
+            update = self.td_receive(self.__session, -1)
+            yield loads(update)
 
     def send(self, req):
         offset = self.__get_offset()
@@ -121,7 +102,7 @@ class Client(TdJsonClient):
         req = dumps(req)
         req = req.encode("ascii")
 
-        self.td_json_client_send(self.__session, req)
+        self.td_send(self.__session, req)
         self.__waiters[offset].wait()
         res = self.__waiters.pop(offset)\
             .get_answer()
