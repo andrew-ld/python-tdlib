@@ -64,7 +64,6 @@ class Client(TdJsonClient):
 
         worker = UpdateWorker(self, self.__waiters)
         self.__updates = worker.get_update_queue()
-        self.set_verbosity(2)
 
     def __del__(self):
         self.stop()
