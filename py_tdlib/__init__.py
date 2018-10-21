@@ -10,7 +10,10 @@ from signal import signal, SIGINT
 def killer(*_):
     for obj in get_objects():
         if isinstance(obj, Client):
-            obj.stop()
+            try:
+                obj.stop()
+            except RpcError as error:
+                print(f"[WARNING] {error}")
 
 
 signal(SIGINT, killer)
