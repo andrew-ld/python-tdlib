@@ -83,7 +83,7 @@ class Client:
         if self.__running:
             try:
                 self.__running = False
-                close().run(self)
+                close().run(self, False)
             except RpcError:
                 pass
 
@@ -96,16 +96,22 @@ class Client:
                 .receive(self.__session, -1)
             yield loads(update)
 
-    def send(self, req):
+    def send(self, req, wait = True):
         offset = self.__get_offset()
-        self.__waiters[offset] = WaitAnswer()
-
         req = req.to_dict()
-        req["@extra"] = offset
+
+        if wait:
+            self.__waiters[offset] = WaitAnswer()
+            req["@extra"] = offset
+
         req = dumps(req)
         req = req.encode("ascii")
 
         self.__pointer.send(self.__session, req)
+
+        if not wait:
+            return
+
         self.__waiters[offset].wait()
         res = self.__waiters.pop(offset)\
             .get_answer()
