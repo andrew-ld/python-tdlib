@@ -6,7 +6,7 @@
     sudo pip3 install git+https://github.com/andrew-ld/python-tdlib 
 
 # example
-    from py_tdlib import Client, Pointer PhoneAuth
+    from py_tdlib import Client, Pointer, PhoneAuth
     from py_tdlib.constructors import getMe
     
     # demo api key, get your from https://my.telegram.org
