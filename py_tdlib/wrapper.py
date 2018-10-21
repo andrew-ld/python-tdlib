@@ -81,11 +81,8 @@ class Client:
 
     def stop(self, *_):
         if self.__running:
-            try:
-                self.__running = False
-                close().run(self, False)
-            except RpcError:
-                pass
+            self.__running = False
+            close().run(self, False)
 
             while not self.__updates.empty():
                 self.__updates.get_nowait()
