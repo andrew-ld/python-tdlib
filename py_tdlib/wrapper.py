@@ -97,10 +97,11 @@ class Client:
             yield loads(update)
 
     def send(self, req, wait = True):
-        offset = self.__get_offset()
+        offset: int
         req = req.to_dict()
 
         if wait:
+            offset = self.__get_offset()
             self.__waiters[offset] = WaitAnswer()
             req["@extra"] = offset
 
