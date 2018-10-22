@@ -69,9 +69,6 @@ class PhoneAuth(BasicInit):
             if isinstance(update, updateAuthorizationState):
                 update = update.authorization_state
 
-            if isinstance(update, updateConnectionState):
-                update = update.state
-
             if isinstance(update, authorizationStateWaitEncryptionKey):
                 checkDatabaseEncryptionKey()\
                     .run(self.client)
@@ -100,5 +97,5 @@ class PhoneAuth(BasicInit):
                 req.password = input("2step password: ")
                 req.run(self.client)
 
-            elif isinstance(update, connectionStateReady):
+            elif isinstance(update, authorizationStateReady):
                 break
