@@ -18,6 +18,7 @@
     client = Client(tdjson)
     
     # login using phone number
+    tdjson.verbosity(0)
     PhoneAuth(api_id, api_hash, client).lets()
 
     # making an API call

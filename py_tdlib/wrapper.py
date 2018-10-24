@@ -72,9 +72,6 @@ class Client:
         self.__offset += 1
         return self.__offset
 
-    def set_verbosity(self, level: int):
-        self.__pointer.verbosity(level)
-
     def get_updates(self):
         while self.__running:
             yield self.__updates.get()
