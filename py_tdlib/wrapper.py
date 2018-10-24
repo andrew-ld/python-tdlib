@@ -65,6 +65,10 @@ class Client:
         worker = UpdateWorker(self, self.__waiters)
         self.__updates = worker.get_update_queue()
 
+    @property
+    def running(self):
+        return self.__running
+
     def __del__(self):
         self.stop()
 
