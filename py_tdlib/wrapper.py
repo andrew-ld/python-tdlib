@@ -8,8 +8,8 @@ from ctypes import CDLL, c_char_p, c_void_p, c_double, c_int
 
 
 class Pointer:
-    def __init__(self, td_json: str):
-        td_json = CDLL(td_json)
+    def __init__(self, path: str):
+        td_json = CDLL(path)
 
         self.create = td_json.td_json_client_create
         self.create.restype = c_void_p
