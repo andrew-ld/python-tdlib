@@ -92,8 +92,10 @@ class Client:
     def receive(self):
         while self.__running:
             update = self.__pointer\
-                .receive(self.__session, -1)
-            yield loads(update)
+                .receive(self.__session, 1)
+
+            if isinstance(update, bytes):
+                yield loads(update)
 
     def send(self, req, wait = True):
         offset: int
