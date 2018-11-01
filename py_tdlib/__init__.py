@@ -1,7 +1,7 @@
 from .factory import factorize
 from .wrapper import Client, Pointer
 from .session import TokenAuth, PhoneAuth
-from .exception import RpcError, RpcTimeout
+from .exception import RpcError, RpcTimeout, IllegalRequest
 
 from gc import get_objects
 from signal import signal, SIGINT

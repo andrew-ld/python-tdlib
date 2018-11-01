@@ -4,3 +4,7 @@ class RpcError(Exception):
 
 class RpcTimeout(Exception):
     pass
+
+
+class IllegalRequest(Exception):
+    pass

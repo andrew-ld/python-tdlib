@@ -1,9 +1,10 @@
 from queue import Queue
 from .factory import factorize
+from .factory.utils import Method
 from simplejson import loads, dumps
 from threading import Event, Thread
-from .exception import RpcError, RpcTimeout
 from .constructors import error, close
+from .exception import RpcError, RpcTimeout, IllegalRequest
 from ctypes import CDLL, c_char_p, c_void_p, c_double, c_int
 
 
@@ -96,7 +97,15 @@ class Client:
 
     def send(self, req, wait = True):
         offset: int
-        req = req.to_dict()
+
+        if isinstance(req, Method):
+            req = req.to_dict()
+
+        if isinstance(req, str):
+            req = loads(req)
+
+        if not isinstance(req, dict):
+            raise IllegalRequest()
 
         if wait:
             offset = self.__get_offset()
