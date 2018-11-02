@@ -5,7 +5,7 @@ from .table import constructors as cs
 def factorize(update):
     if isinstance(update, dict):
         c = update.get("@type")
-        return cs[c](**update)
+        return cs.get(c, Type)(**update)
 
     if isinstance(update, list):
         return [*map(factorize, update)]
@@ -46,7 +46,18 @@ class Obj:
 
         return result
 
-    def __init__(self, **kwargs):
+    def __args(self):
+        x = vars(type(self))
+        return [y for y in x if not y.startswith("__")]
+
+    def __init__(self, *args, **kwargs):
+        pos_args = self.__args()
+
+        if len(args) <= len(pos_args):
+            for k, v in enumerate(args):
+                v = factorize(v)
+                setattr(self, pos_args[k], v)
+
         for k, v in kwargs.items():
             v = factorize(v)
             setattr(self, k, v)
