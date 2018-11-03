@@ -20,7 +20,7 @@ def list_passer(obj):
         if isinstance(x, list):
             result.append(list_passer(x))
 
-        elif isinstance(x, obj):
+        elif isinstance(x, Obj):
             result.append(x.to_dict())
 
         else:
