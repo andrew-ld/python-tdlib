@@ -15,11 +15,12 @@ def factorize(update):
 
 def list_passer(obj):
     result = []
+
     for x in obj:
         if isinstance(x, list):
             result.append(list_passer(x))
 
-        elif hasattr(x, "to_dict"):
+        elif isinstance(x, obj):
             result.append(x.to_dict())
 
         else:
@@ -35,7 +36,7 @@ class Obj:
         for x in vars(self):
             attr = getattr(self, x)
 
-            if hasattr(attr, "to_dict"):
+            if isinstance(attr, Obj):
                 result[x] = attr.to_dict()
 
             elif isinstance(attr, list):
