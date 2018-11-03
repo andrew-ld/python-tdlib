@@ -85,9 +85,11 @@ class Client:
         if self.__running:
             self.__running = False
             close().run(self, False)
+            self.clear_updates()
 
-            while not self.__updates.empty():
-                self.__updates.get_nowait()
+    def clear_updates(self):
+        while not self.__updates.empty():
+            self.__updates.get_nowait()
 
     def receive(self):
         while self.__running:
