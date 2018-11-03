@@ -46,17 +46,13 @@ class Obj:
 
         return result
 
-    def __args(self):
-        x = vars(type(self))
-        return [y for y in x if not y.startswith("__")]
-
     def __init__(self, *args, **kwargs):
-        pos_args = self.__args()
+        pos_args = [x for x in dir(self) if x[0] != "_"]
 
         if len(args) <= len(pos_args):
-            for k, v in enumerate(args):
+            for k, v in zip(pos_args, args):
                 v = factorize(v)
-                setattr(self, pos_args[k], v)
+                setattr(self, k, v)
 
         for k, v in kwargs.items():
             v = factorize(v)
