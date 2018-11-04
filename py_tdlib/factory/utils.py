@@ -48,7 +48,7 @@ class Obj:
         return result
 
     def __init__(self, *args, **kwargs):
-        pos_args = [x for x in dir(self) if x[0] != "_"]
+        pos_args = [x for x in vars(type(self)) if x[0] != "_"]
 
         if len(args) <= len(pos_args):
             for k, v in zip(pos_args, args):
