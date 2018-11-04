@@ -54,16 +54,30 @@ class WaitAnswer:
         return self.__answer
 
 
+class KQueue(Queue):
+    def __init__(self, limit: int):
+        assert limit > 1
+        super(KQueue, self)\
+            .__init__(maxsize = limit)
+
+    def put_nowait(self, item):
+        if self.full():
+            self.get_nowait()
+
+        super(KQueue, self)\
+            .put_nowait(item)
+
+
 class Client:
     __offset = 0
     __running = True
 
-    def __init__(self, pointer: Pointer):
+    def __init__(self, pointer: Pointer, limit: int = 100):
         self.__waiters = {}
         self.__pointer = pointer
         self.__session = self.__pointer.create()
 
-        worker = UpdateWorker(self, self.__waiters)
+        worker = UpdateWorker(self, self.__waiters, limit)
         self.__updates = worker.get_update_queue()
 
     @property
@@ -138,10 +152,10 @@ class Client:
 
 
 class UpdateWorker:
-    def __init__(self, client: Client, waiters: dict):
+    def __init__(self, client: Client, waiters: dict, limit: int):
         self.__wrapper = client
         self.__waiters = waiters
-        self.__updates = Queue()
+        self.__updates = KQueue(limit)
 
         Thread(target = self.__worker).start()
 
