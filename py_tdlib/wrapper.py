@@ -96,10 +96,12 @@ class Client:
             yield self.__updates.get()
 
     def stop(self, *_):
-        if self.__running:
-            self.__running = False
-            close().run(self, False)
-            self.clear_updates()
+        if not self.__running:
+            raise IllegalRequest()
+
+        self.__running = False
+        close().run(self, False)
+        self.clear_updates()
 
     def clear_updates(self):
         while not self.__updates.empty():
