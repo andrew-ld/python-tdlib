@@ -1,6 +1,6 @@
 from .factory import factorize
 from .wrapper import Client, Pointer
-from .session import TokenAuth, PhoneAuth
+from .session import Auth
 from .exception import RpcError, RpcTimeout, IllegalRequest
 
 from gc import get_objects

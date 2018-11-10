@@ -42,8 +42,8 @@ class BasicInit:
         setTdlibParameters(parameters = parameters).run(client)
 
 
-class TokenAuth(BasicInit):
-    def lets(self, token: str):
+class Auth(BasicInit):
+    def token(self, token: str):
         for update in self.client.get_updates():
             if isinstance(update, updateAuthorizationState):
                 update = update.authorization_state
@@ -62,9 +62,7 @@ class TokenAuth(BasicInit):
             elif isinstance(update, connectionStateReady):
                 break
 
-
-class PhoneAuth(BasicInit):
-    def lets(self):
+    def phone(self):
         for update in self.client.get_updates():
             if isinstance(update, updateAuthorizationState):
                 update = update.authorization_state

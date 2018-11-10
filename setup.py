@@ -4,7 +4,7 @@ from distutils.core import setup
 
 setup(
     name = "python-tdlib",
-    version = "1.2.7",
+    version = "1.2.8",
     author = "andrew-ld",
     license = "MIT",
     url = "https://github.com/andrew-ld/python-tdlib",

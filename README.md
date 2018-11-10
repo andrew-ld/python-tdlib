@@ -6,7 +6,7 @@
     sudo pip3 install git+https://github.com/andrew-ld/python-tdlib 
 
 # example
-    from py_tdlib import Client, Pointer, PhoneAuth
+    from py_tdlib import Client, Pointer, Auth
     from py_tdlib.constructors import getMe
     
     # demo api key, get your from https://my.telegram.org
@@ -19,7 +19,12 @@
     
     # login using phone number
     tdjson.verbosity(0)
-    PhoneAuth(api_id, api_hash, client).lets()
+    Auth(api_id, api_hash, client).phone()
+    
+    # login using bot token
+    #
+    # tdjson.verbosity(0)
+    # Auth(api_id, api_hash, client).token("<bot_token>")
 
     # making an API call
     result = client.send(getMe())

@@ -97,11 +97,12 @@ class Client:
 
     def stop(self, *_):
         if not self.__running:
-            raise IllegalRequest()
+            return False
 
         self.__running = False
         close().run(self, False)
         self.clear_updates()
+        return True
 
     def clear_updates(self):
         while not self.__updates.empty():
