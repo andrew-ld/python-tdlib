@@ -1,4 +1,4 @@
-from .factory import factorize
+from .factory import deserialize
 from .wrapper import Client, Pointer
 from .session import Auth
 from .exception import RpcError, RpcTimeout, IllegalRequest

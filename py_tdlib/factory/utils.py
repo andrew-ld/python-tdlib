@@ -2,13 +2,13 @@ from simplejson import dumps
 from .table import constructors as cs
 
 
-def factorize(update):
+def deserialize(update):
     if isinstance(update, dict):
         c = update.get("@type")
         return cs.get(c, Type)(**update)
 
     if isinstance(update, list):
-        return [*map(factorize, update)]
+        return [*map(deserialize, update)]
 
     return update
 
@@ -33,31 +33,29 @@ class Obj:
     def to_dict(self):
         result = {"@type": type(self).__name__}
 
-        for x in vars(self):
-            attr = getattr(self, x)
+        for k, v in self.__dict__.items():
+            if k.startswith("_"):
+                pass
 
-            if isinstance(attr, Obj):
-                result[x] = attr.to_dict()
+            elif isinstance(v, Obj):
+                result[k] = v.to_dict()
 
-            elif isinstance(attr, list):
-                result[x] = list_passer(attr)
+            elif isinstance(v, list):
+                result[k] = list_passer(v)
 
             else:
-                result[x] = attr
+                result[k] = v
 
         return result
 
     def __init__(self, *args, **kwargs):
-        pos_args = [x for x in vars(type(self)) if x[0] != "_"]
+        args_name = [x for x in vars(type(self)) if x[0] != "_"]
 
-        if len(args) <= len(pos_args):
-            for k, v in zip(pos_args, args):
-                v = factorize(v)
-                setattr(self, k, v)
+        self.__dict__ = dict((k, deserialize(v)) for k, v in zip(args_name, args))
+        self.__dict__.update(dict((k, deserialize(v)) for k, v in kwargs.items()))
 
-        for k, v in kwargs.items():
-            v = factorize(v)
-            setattr(self, k, v)
+        self.__getattribute__ = self.__dict__.__getitem__
+        self.__setattr__ = self.__dict__.__setitem__
 
     def __len__(self) -> int:
         return len(self.__str__())

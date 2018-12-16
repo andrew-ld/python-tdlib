@@ -1,4 +1,4 @@
-from .utils import Type, Method, factorize
+from .utils import Type, Method, deserialize
 from .. import constructors
 
 # monkey patching constructors table

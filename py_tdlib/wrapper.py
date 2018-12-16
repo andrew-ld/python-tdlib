@@ -1,5 +1,5 @@
 from queue import Queue
-from .factory import factorize
+from .factory import deserialize
 from .factory.utils import Method
 from simplejson import loads, dumps
 from threading import Event, Thread
@@ -167,7 +167,7 @@ class UpdateWorker:
 
     def __worker(self):
         for raw_update in self.__wrapper.receive():
-            update = factorize(raw_update)
+            update = deserialize(raw_update)
 
             if "@extra" not in raw_update:
                 self.__updates.put_nowait(update)
