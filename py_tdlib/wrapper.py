@@ -57,15 +57,13 @@ class WaitAnswer:
 class KQueue(Queue):
     def __init__(self, limit: int):
         assert limit > 1
-        super(KQueue, self)\
-            .__init__(maxsize = limit)
+        super(KQueue, self).__init__(maxsize=limit)
 
     def put_nowait(self, item):
         if self.full():
             self.get_nowait()
 
-        super(KQueue, self)\
-            .put_nowait(item)
+        super(KQueue, self).put_nowait(item)
 
 
 class Client:
@@ -110,13 +108,12 @@ class Client:
 
     def receive(self):
         while self.__running:
-            update = self.__pointer\
-                .receive(self.__session, 1)
+            update = self.__pointer.receive(self.__session, 1)
 
             if isinstance(update, bytes):
                 yield loads(update)
 
-    def send(self, req, wait = True):
+    def send(self, req, wait=True):
         offset: int
 
         if isinstance(req, Method):
@@ -142,8 +139,7 @@ class Client:
             return
 
         self.__waiters[offset].wait()
-        res = self.__waiters.pop(offset)\
-            .get_answer()
+        res = self.__waiters.pop(offset).get_answer()
 
         if isinstance(res, error):
             raise RpcError(res.message)
@@ -160,7 +156,7 @@ class UpdateWorker:
         self.__waiters = waiters
         self.__updates = KQueue(limit)
 
-        Thread(target = self.__worker).start()
+        Thread(target=self.__worker).start()
 
     def get_update_queue(self) -> Queue:
         return self.__updates
@@ -173,5 +169,4 @@ class UpdateWorker:
                 self.__updates.put_nowait(update)
 
             elif raw_update["@extra"] in self.__waiters:
-                self.__waiters[raw_update["@extra"]]\
-                    .set_answer(update)
+                self.__waiters[raw_update["@extra"]].set_answer(update)

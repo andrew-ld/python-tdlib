@@ -2,19 +2,37 @@ from sys import hexversion
 from werkzeug.utils import secure_filename
 
 from .constructors import (
-    setTdlibParameters, tdlibParameters, updateAuthorizationState,
-    authorizationStateWaitEncryptionKey, checkDatabaseEncryptionKey,
-    getAuthorizationState, authorizationStateWaitPhoneNumber,
-    checkAuthenticationBotToken, authorizationStateReady,
-    authorizationStateWaitTdlibParameters, setAuthenticationPhoneNumber,
-    authorizationStateWaitCode, checkAuthenticationCode,
-    authorizationStateWaitPassword, checkAuthenticationPassword,
-    updateConnectionState, connectionStateReady
+    setTdlibParameters,
+    tdlibParameters,
+    updateAuthorizationState,
+    authorizationStateWaitEncryptionKey,
+    checkDatabaseEncryptionKey,
+    getAuthorizationState,
+    authorizationStateWaitPhoneNumber,
+    checkAuthenticationBotToken,
+    authorizationStateReady,
+    authorizationStateWaitTdlibParameters,
+    setAuthenticationPhoneNumber,
+    authorizationStateWaitCode,
+    checkAuthenticationCode,
+    authorizationStateWaitPassword,
+    checkAuthenticationPassword,
+    updateConnectionState,
+    connectionStateReady,
 )
 
 
 class BasicInit:
-    def __init__(self, api_id: int, api_hash: str, client, name: str = None):
+    def __init__(
+        self,
+        api_id: int,
+        api_hash: str,
+        client,
+        name: str = None,
+        chat_db=True,
+        messages_db=True,
+        storage_optimizer=True,
+    ):
         self.client = client
 
         if name:
@@ -26,20 +44,20 @@ class BasicInit:
         assert isinstance(status, authorizationStateWaitTdlibParameters)
 
         parameters = tdlibParameters(
-            use_test_dc = False,
-            api_id = api_id,
-            api_hash = api_hash,
-            database_directory = directory,
-            use_chat_info_database = True,
-            use_message_database = True,
-            enable_storage_optimizer = True,
-            system_language_code = "en",
-            device_model = "python",
-            application_version = "1",
-            system_version = str(hexversion),
+            use_test_dc=False,
+            api_id=api_id,
+            api_hash=api_hash,
+            database_directory=directory,
+            use_chat_info_database=chat_db,
+            use_message_database=messages_db,
+            enable_storage_optimizer=storage_optimizer,
+            system_language_code="en",
+            device_model="python",
+            application_version="1",
+            system_version=str(hexversion),
         )
 
-        setTdlibParameters(parameters = parameters).run(client)
+        setTdlibParameters(parameters=parameters).run(client)
 
 
 class Auth(BasicInit):
@@ -52,12 +70,10 @@ class Auth(BasicInit):
                 update = update.state
 
             if isinstance(update, authorizationStateWaitEncryptionKey):
-                checkDatabaseEncryptionKey()\
-                    .run(self.client)
+                checkDatabaseEncryptionKey().run(self.client)
 
             elif isinstance(update, authorizationStateWaitPhoneNumber):
-                checkAuthenticationBotToken(token = token)\
-                    .run(self.client)
+                checkAuthenticationBotToken(token=token).run(self.client)
 
             elif isinstance(update, connectionStateReady):
                 break
@@ -68,13 +84,11 @@ class Auth(BasicInit):
                 update = update.authorization_state
 
             if isinstance(update, authorizationStateWaitEncryptionKey):
-                checkDatabaseEncryptionKey()\
-                    .run(self.client)
+                checkDatabaseEncryptionKey().run(self.client)
 
             elif isinstance(update, authorizationStateWaitPhoneNumber):
                 req = setAuthenticationPhoneNumber(
-                    allow_flash_call = False,
-                    is_current_phone_number = False,
+                    allow_flash_call=False, is_current_phone_number=False
                 )
 
                 req.phone_number = input("phone: ")

@@ -68,7 +68,7 @@ class Obj:
 
 
 class Method(Obj):
-    def run(self, client, wait = True):
+    def run(self, client, wait=True):
         return client.send(self, wait)
 
 
