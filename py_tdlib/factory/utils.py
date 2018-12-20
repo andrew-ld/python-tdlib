@@ -13,12 +13,12 @@ def deserialize(update):
     return update
 
 
-def list_passer(obj):
+def list_parser(obj):
     result = []
 
     for x in obj:
         if isinstance(x, list):
-            result.append(list_passer(x))
+            result.append(list_parser(x))
 
         elif isinstance(x, Obj):
             result.append(x.to_dict())
@@ -41,7 +41,7 @@ class Obj:
                 result[k] = v.to_dict()
 
             elif isinstance(v, list):
-                result[k] = list_passer(v)
+                result[k] = list_parser(v)
 
             else:
                 result[k] = v
