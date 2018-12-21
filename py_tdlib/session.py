@@ -28,19 +28,15 @@ class BasicInit:
         api_id: int,
         api_hash: str,
         client,
-        name: str = None,
+        name="default",
         chat_db=True,
         messages_db=True,
         storage_optimizer=True,
     ):
         self.client = client
 
-        if name:
-            directory = "data/sessions/" + secure_filename(name)
-        else:
-            directory = "data/sessions/default"
-
         status = getAuthorizationState().run(client)
+        directory = f"data/sessions/{secure_filename(name)}/"
         assert isinstance(status, authorizationStateWaitTdlibParameters)
 
         parameters = tdlibParameters(
