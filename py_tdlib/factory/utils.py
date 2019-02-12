@@ -60,7 +60,19 @@ class Obj:
     def __len__(self) -> int:
         return len(self.__str__())
 
-    def __hash__(self):
+    def __repr__(self) -> str:
+        result = f"{type(self).__name__}("
+
+        for k, v in self.__dict__.items():
+            if not k.startswith("_"):
+                result += f"{k} = {repr(v)}, "
+
+        if result.endswith(", "):
+            return f"{result[:-2]})"
+
+        return f"{result})"
+
+    def __hash__(self) -> int:
         return hash(self.__str__())
 
     def __str__(self) -> str:
