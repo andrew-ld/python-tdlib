@@ -30,6 +30,8 @@ def list_parser(obj):
 
 
 class Obj:
+    __slots__ = ['__dict__']
+
     def to_dict(self):
         result = {"@type": type(self).__name__}
 
