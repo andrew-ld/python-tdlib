@@ -51,8 +51,7 @@ class Obj:
         return result
 
     def __init__(self, *args, **kwargs):
-        args_name = [x for x in vars(type(self)) if x[0] != "_"]
-
+        args_name = [x for x in vars(type(self)) if not x.startswith(("@", "_"))]
         self.__dict__ = dict((k, deserialize(v)) for k, v in zip(args_name, args))
         self.__dict__.update(dict((k, deserialize(v)) for k, v in kwargs.items()))
 
@@ -66,7 +65,7 @@ class Obj:
         result = f"{type(self).__name__}("
 
         for k, v in self.__dict__.items():
-            if not k.startswith("_"):
+            if not k.startswith(("_", "@")):
                 result += f"{k} = {repr(v)}, "
 
         if result.endswith(", "):
