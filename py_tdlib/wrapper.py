@@ -2,7 +2,7 @@ from queue import Queue
 from .factory import deserialize
 from .factory.utils import Method
 from simplejson import loads, dumps
-from threading import Event, Thread
+from threading import Event, Thread, Lock
 from .constructors import error, close
 from .exception import RpcError, RpcTimeout, IllegalRequest
 from ctypes import CDLL, c_char_p, c_void_p, c_double, c_int
@@ -74,6 +74,7 @@ class Client:
         self.__waiters = {}
         self.__pointer = pointer
         self.__session = self.__pointer.create()
+        self.__offset_lock = Lock()
 
         worker = UpdateWorker(self, self.__waiters, limit)
         self.__updates = worker.get_update_queue()
@@ -86,8 +87,9 @@ class Client:
         self.stop()
 
     def __get_offset(self) -> int:
-        self.__offset += 1
-        return self.__offset
+        with self.__offset_lock:
+            self.__offset += 1
+            return self.__offset
 
     def get_updates(self):
         while self.__running:
