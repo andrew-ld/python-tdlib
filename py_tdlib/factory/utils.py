@@ -31,12 +31,13 @@ def list_parser(obj):
 
 class Obj:
     __slots__ = ['__dict__']
+    __RESRV = ("@", "_",)
 
     def to_dict(self):
         result = {"@type": type(self).__name__}
 
         for k, v in self.__dict__.items():
-            if k.startswith("_"):
+            if k.startswith(self.__RESRV):
                 pass
 
             elif isinstance(v, Obj):
@@ -51,7 +52,7 @@ class Obj:
         return result
 
     def __init__(self, *args, **kwargs):
-        args_name = [x for x in vars(type(self)) if not x.startswith(("@", "_"))]
+        args_name = [x for x in vars(type(self)) if not x.startswith(self.__RESRV)]
         self.__dict__ = dict((k, deserialize(v)) for k, v in zip(args_name, args))
         self.__dict__.update(dict((k, deserialize(v)) for k, v in kwargs.items()))
 
@@ -65,7 +66,7 @@ class Obj:
         result = f"{type(self).__name__}("
 
         for k, v in self.__dict__.items():
-            if not k.startswith(("_", "@")):
+            if not k.startswith(self.__RESRV):
                 result += f"{k} = {repr(v)}, "
 
         if result.endswith(", "):
