@@ -115,9 +115,8 @@ class Client:
             if isinstance(update, bytes):
                 yield loads(update)
 
-    def send(self, req, wait=True):
-        offset: int
-
+    @staticmethod
+    def serialize_method(req):
         if isinstance(req, Method):
             req = req.to_dict()
 
@@ -127,14 +126,33 @@ class Client:
         if not isinstance(req, dict):
             raise IllegalRequest()
 
+        return req
+
+    @staticmethod
+    def encode_request(req):
+        req = dumps(req)
+        req = req.encode("ascii")
+
+        return req
+
+    @staticmethod
+    def validate_response(res):
+        if isinstance(res, error):
+            raise RpcError(res.message)
+
+        if isinstance(res, RpcTimeout):
+            raise RpcTimeout()
+
+    def send(self, req, wait=True):
+        offset: int
+        req = self.serialize_method(req)
+
         if wait:
             offset = self.__get_offset()
             self.__waiters[offset] = WaitAnswer()
             req["@extra"] = offset
 
-        req = dumps(req)
-        req = req.encode("ascii")
-
+        req = self.encode_request(req)
         self.__pointer.send(self.__session, req)
 
         if not wait:
@@ -143,12 +161,16 @@ class Client:
         self.__waiters[offset].wait()
         res = self.__waiters.pop(offset).get_answer()
 
-        if isinstance(res, error):
-            raise RpcError(res.message)
+        self.validate_response(res)
+        return res
 
-        if isinstance(res, RpcTimeout):
-            raise RpcTimeout()
+    def execute(self, req):
+        req = self.serialize_method(req)
+        req = self.encode_request(req)
+        res = self.__pointer.execute(self.__session, req)
+        res = deserialize(loads(res))
 
+        self.validate_response(res)
         return res
 
 
