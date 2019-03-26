@@ -75,6 +75,7 @@ class Client:
         self.__pointer = pointer
         self.__session = self.__pointer.create()
         self.__offset_lock = Lock()
+        self.__close_lock = Lock()
 
         worker = UpdateWorker(self, self.__waiters, limit)
         self.__updates = worker.get_update_queue()
@@ -96,13 +97,14 @@ class Client:
             yield self.__updates.get()
 
     def stop(self, *_):
-        if not self.__running:
-            return False
+        while self.__close_lock:
+            if not self.__running:
+                return False
 
-        self.__running = False
-        close().run(self, False)
-        self.clear_updates()
-        return True
+            self.__running = False
+            close().run(self, False)
+            self.clear_updates()
+            return True
 
     def clear_updates(self):
         while not self.__updates.empty():
