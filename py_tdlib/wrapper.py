@@ -57,13 +57,19 @@ class WaitAnswer:
 class KQueue(Queue):
     def __init__(self, limit: int):
         assert limit > 1
-        super(KQueue, self).__init__(maxsize=limit)
+        self.__put_lock = Lock()
+        super().__init__(maxsize=limit)
 
     def put_nowait(self, item):
-        if self.full():
-            self.get_nowait()
+        with self.__put_lock:
+            if self.full():
+                self.get_nowait()
 
-        super(KQueue, self).put_nowait(item)
+            super().put_nowait(item)
+
+    def put(self, **kwargs):
+        with self.__put_lock:
+            super().put(**kwargs)
 
 
 class Client:
