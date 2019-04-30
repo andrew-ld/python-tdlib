@@ -84,7 +84,8 @@ class Auth(BasicInit):
 
             elif isinstance(update, authorizationStateWaitPhoneNumber):
                 req = setAuthenticationPhoneNumber(
-                    allow_flash_call=False, is_current_phone_number=False
+                    allow_flash_call=False,
+                    is_current_phone_number=False
                 )
 
                 req.phone_number = input("phone: ")

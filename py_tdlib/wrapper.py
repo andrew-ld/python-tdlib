@@ -67,10 +67,6 @@ class KQueue(Queue):
 
             super().put_nowait(item)
 
-    def put(self, **kwargs):
-        with self.__put_lock:
-            super().put(**kwargs)
-
 
 class Client:
     __offset = 0
@@ -108,7 +104,7 @@ class Client:
                 return False
 
             self.__running = False
-            close().run(self, False)
+            self.send(close(), False)
             self.clear_updates()
             return True
 

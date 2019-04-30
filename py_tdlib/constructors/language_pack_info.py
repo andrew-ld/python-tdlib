@@ -2,12 +2,16 @@ from ..factory import Type
 
 
 class languagePackInfo(Type):
-    # Contains information about a language pack, @id Unique language pack
-    # identifier, @name Language name, @native_name Name of the language in
-    # that language, @local_string_count Total number of non-deleted strings from the
-    # language pack available locally
-
-    id = None  # type: "string"
-    name = None  # type: "string"
-    native_name = None  # type: "string"
-    local_string_count = None  # type: "int32"
+	id = None  # type: "string"
+	base_language_pack_id = None  # type: "string"
+	name = None  # type: "string"
+	native_name = None  # type: "string"
+	plural_code = None  # type: "string"
+	is_official = None  # type: "Bool"
+	is_rtl = None  # type: "Bool"
+	is_beta = None  # type: "Bool"
+	is_installed = None  # type: "Bool"
+	total_string_count = None  # type: "int32"
+	translated_string_count = None  # type: "int32"
+	local_string_count = None  # type: "int32"
+	translation_url = None  # type: "string"
