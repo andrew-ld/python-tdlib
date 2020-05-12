@@ -1,4 +1,13 @@
-# python-tdlib
+
+## warning: since tdlib memory leak I don't keep this wrapper anymore because I will never use it again, tell levlam to fix tdlib memory leak, as long as there are these memory leaks over 10gb this mtproto client is a piece of shit
+
+# alternatives which I strongly recommend:
+
+https://docs.pyrogram.org
+
+https://telethon.dev
+
+## python-tdlib
 
 > full oop python 3 tdlib wrapper, fast, thread safe
 
