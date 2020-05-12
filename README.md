@@ -1,5 +1,5 @@
 
-## warning: since tdlib memory leak I don't keep this wrapper anymore because I will never use it again, tell levlam to fix tdlib memory leak, as long as there are these memory leaks over 10gb this mtproto client is a piece of shit
+## warning: since tdlib memory leak I don't maintain this wrapper anymore because I will never use it again, tell levlam to fix tdlib memory leak, as long as there are these memory leaks over 10gb this mtproto client is a piece of shit
 
 # alternatives which I strongly recommend:
 
